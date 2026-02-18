@@ -1,0 +1,1942 @@
+{
+  "v": 5,
+  "entries": {
+    "introduction-getting-started--docs": {
+      "id": "introduction-getting-started--docs",
+      "title": "INTRODUCTION/Getting Started",
+      "name": "Docs",
+      "importPath": "./stories/2.gettingStarted.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "introduction-getting-started-manual-setup--docs": {
+      "id": "introduction-getting-started-manual-setup--docs",
+      "title": "INTRODUCTION/Getting Started/Manual Setup",
+      "name": "Docs",
+      "importPath": "./stories/2a.gettingStartedManual.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "introduction-demo--demo": {
+      "type": "story",
+      "id": "introduction-demo--demo",
+      "name": "Demo",
+      "title": "INTRODUCTION/Demo",
+      "importPath": "./stories/1.demo.stories.tsx",
+      "tags": [
+        "dev",
+        "test"
+      ]
+    },
+    "introduction-deploying--docs": {
+      "id": "introduction-deploying--docs",
+      "title": "INTRODUCTION/Deploying",
+      "name": "Docs",
+      "importPath": "./stories/3.deployment.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "introduction-deploying-manual-setup--docs": {
+      "id": "introduction-deploying-manual-setup--docs",
+      "title": "INTRODUCTION/Deploying/Manual Setup",
+      "name": "Docs",
+      "importPath": "./stories/3a.deploymentManual.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "introduction-deploying-ssh-credentials--docs": {
+      "id": "introduction-deploying-ssh-credentials--docs",
+      "title": "INTRODUCTION/Deploying/SSH Credentials",
+      "name": "Docs",
+      "importPath": "./stories/3b.deploymentSsh.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "introduction-responsive-layouts--demo": {
+      "type": "story",
+      "id": "introduction-responsive-layouts--demo",
+      "name": "Demo",
+      "title": "INTRODUCTION/Responsive Layouts",
+      "importPath": "./stories/3.responsive.stories.tsx",
+      "tags": [
+        "dev",
+        "test"
+      ]
+    },
+    "introduction-responsive-layouts--use-breakpoint": {
+      "type": "story",
+      "id": "introduction-responsive-layouts--use-breakpoint",
+      "name": "useBreakpoint",
+      "title": "INTRODUCTION/Responsive Layouts",
+      "importPath": "./stories/3.responsive.stories.tsx",
+      "tags": [
+        "dev",
+        "test"
+      ]
+    },
+    "introduction-responsive-layouts--custom-breakpoints": {
+      "type": "story",
+      "id": "introduction-responsive-layouts--custom-breakpoints",
+      "name": "Custom Breakpoints",
+      "title": "INTRODUCTION/Responsive Layouts",
+      "importPath": "./stories/3.responsive.stories.tsx",
+      "tags": [
+        "dev",
+        "test"
+      ]
+    },
+    "introduction-responsive-layouts-dynamic-card-width--docs": {
+      "id": "introduction-responsive-layouts-dynamic-card-width--docs",
+      "title": "INTRODUCTION/Responsive Layouts/Dynamic Card Width",
+      "name": "Docs",
+      "importPath": "./stories/3a.responsiveCardLayout.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "introduction-responsive-layouts-breakpoints--docs": {
+      "id": "introduction-responsive-layouts-breakpoints--docs",
+      "title": "INTRODUCTION/Responsive Layouts/Breakpoints",
+      "name": "Docs",
+      "importPath": "./stories/3b.responsiveBreakpoints.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "introduction-responsive-layouts-media-query-helper--docs": {
+      "id": "introduction-responsive-layouts-media-query-helper--docs",
+      "title": "INTRODUCTION/Responsive Layouts/Media Query Helper",
+      "name": "Docs",
+      "importPath": "./stories/3c.responsiveMqHelper.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "introduction-responsive-layouts-css-classes--docs": {
+      "id": "introduction-responsive-layouts-css-classes--docs",
+      "title": "INTRODUCTION/Responsive Layouts/CSS Classes",
+      "name": "Docs",
+      "importPath": "./stories/3d.responsiveClasses.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "introduction-typescriptsync--docs": {
+      "id": "introduction-typescriptsync--docs",
+      "title": "INTRODUCTION/TypescriptSync",
+      "name": "Docs",
+      "importPath": "./stories/6.typescriptSync.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "introduction-issues-discussions--docs": {
+      "id": "introduction-issues-discussions--docs",
+      "title": "INTRODUCTION/Issues & Discussions",
+      "name": "Docs",
+      "importPath": "./stories/4.issuesAndDiscussions.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "introduction-changelog--docs": {
+      "id": "introduction-changelog--docs",
+      "title": "INTRODUCTION/Changelog",
+      "name": "Docs",
+      "importPath": "./stories/5.changeLog.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "editor-wip-drag-and-drop-editor--docs": {
+      "id": "editor-wip-drag-and-drop-editor--docs",
+      "title": "editor/WIP - Drag and Drop editor",
+      "name": "Docs",
+      "importPath": "./stories/editor.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-alarmcard--docs": {
+      "id": "components-cards-alarmcard--docs",
+      "title": "components/Cards/AlarmCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/AlarmCard/AlarmCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-alarmcard--alarm-card-with-no-keypad-support": {
+      "type": "story",
+      "id": "components-cards-alarmcard--alarm-card-with-no-keypad-support",
+      "name": "Alarm Card With No Keypad Support",
+      "title": "components/Cards/AlarmCard",
+      "importPath": "./packages/components/src/Cards/AlarmCard/AlarmCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-areacard--docs": {
+      "id": "components-cards-areacard--docs",
+      "title": "components/Cards/AreaCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/AreaCard/AreaCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-areacard--multiple-areas-example": {
+      "type": "story",
+      "id": "components-cards-areacard--multiple-areas-example",
+      "name": "Multiple Areas Example",
+      "title": "components/Cards/AreaCard",
+      "importPath": "./packages/components/src/Cards/AreaCard/AreaCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-buttoncard--docs": {
+      "id": "components-cards-buttoncard--docs",
+      "title": "components/Cards/ButtonCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/ButtonCard/ButtonCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-buttoncard--detailed-example": {
+      "type": "story",
+      "id": "components-cards-buttoncard--detailed-example",
+      "name": "Detailed Example",
+      "title": "components/Cards/ButtonCard",
+      "importPath": "./packages/components/src/Cards/ButtonCard/ButtonCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-calendarcard--docs": {
+      "id": "components-cards-calendarcard--docs",
+      "title": "components/Cards/CalendarCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/CalendarCard/CalendarCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-cameracard--docs": {
+      "id": "components-cards-cameracard--docs",
+      "title": "components/Cards/CameraCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/CameraCard/CameraCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-cardbase--docs": {
+      "id": "components-cards-cardbase--docs",
+      "title": "components/Cards/CardBase",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/CardBase/CardBase.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-cardbase-featureentity--docs": {
+      "id": "components-cards-cardbase-featureentity--docs",
+      "title": "components/Cards/CardBase/FeatureEntity",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/CardBase/FeatureEntity/FeatureEntity.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-cardbase-featureentity--example": {
+      "type": "story",
+      "id": "components-cards-cardbase-featureentity--example",
+      "name": "Example",
+      "title": "components/Cards/CardBase/FeatureEntity",
+      "importPath": "./packages/components/src/Cards/CardBase/FeatureEntity/FeatureEntity.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-cardbase-relatedentity--docs": {
+      "id": "components-cards-cardbase-relatedentity--docs",
+      "title": "components/Cards/CardBase/RelatedEntity",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/CardBase/RelatedEntity/RelatedEntity.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-cardbase-relatedentity--example": {
+      "type": "story",
+      "id": "components-cards-cardbase-relatedentity--example",
+      "name": "Example",
+      "title": "components/Cards/CardBase/RelatedEntity",
+      "importPath": "./packages/components/src/Cards/CardBase/RelatedEntity/RelatedEntity.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-climatecard--docs": {
+      "id": "components-cards-climatecard--docs",
+      "title": "components/Cards/ClimateCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/ClimateCard/ClimateCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-climatecard--climate-with-temperature-controls-example": {
+      "type": "story",
+      "id": "components-cards-climatecard--climate-with-temperature-controls-example",
+      "name": "Climate With Temperature Controls Example",
+      "title": "components/Cards/ClimateCard",
+      "importPath": "./packages/components/src/Cards/ClimateCard/ClimateCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-climatecard--climate-card-with-custom-hvac-example": {
+      "type": "story",
+      "id": "components-cards-climatecard--climate-card-with-custom-hvac-example",
+      "name": "Climate Card With Custom Hvac Example",
+      "title": "components/Cards/ClimateCard",
+      "importPath": "./packages/components/src/Cards/ClimateCard/ClimateCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-climatecard--climate-card-unavailable-example": {
+      "type": "story",
+      "id": "components-cards-climatecard--climate-card-unavailable-example",
+      "name": "Climate Card Unavailable Example",
+      "title": "components/Cards/ClimateCard",
+      "importPath": "./packages/components/src/Cards/ClimateCard/ClimateCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-entitiescard--docs": {
+      "id": "components-cards-entitiescard--docs",
+      "title": "components/Cards/EntitiesCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/EntitiesCard/EntitiesCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-entitiescard-entitiescardrow--docs": {
+      "id": "components-cards-entitiescard-entitiescardrow--docs",
+      "title": "components/Cards/EntitiesCard/EntitiesCardRow",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/EntitiesCard/EntitiesCardRow.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-fabcard--docs": {
+      "id": "components-cards-fabcard--docs",
+      "title": "components/Cards/FabCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/FabCard/FabCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-fabcard--fab-card-unavailable-example": {
+      "type": "story",
+      "id": "components-cards-fabcard--fab-card-unavailable-example",
+      "name": "Fab Card Unavailable Example",
+      "title": "components/Cards/FabCard",
+      "importPath": "./packages/components/src/Cards/FabCard/FabCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-familycard--docs": {
+      "id": "components-cards-familycard--docs",
+      "title": "components/Cards/FamilyCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/FamilyCard/FamilyCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-familycard-personcard--docs": {
+      "id": "components-cards-familycard-personcard--docs",
+      "title": "components/Cards/FamilyCard/PersonCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/FamilyCard/PersonCard/PersonCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-familycard-personcard--example": {
+      "type": "story",
+      "id": "components-cards-familycard-personcard--example",
+      "name": "Example",
+      "title": "components/Cards/FamilyCard/PersonCard",
+      "importPath": "./packages/components/src/Cards/FamilyCard/PersonCard/PersonCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-garbagecollectioncard--docs": {
+      "id": "components-cards-garbagecollectioncard--docs",
+      "title": "components/Cards/GarbageCollectionCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/GarbageCollectionCard/GarbageCollectionCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-garbagecollectioncard--detailed-examples": {
+      "type": "story",
+      "id": "components-cards-garbagecollectioncard--detailed-examples",
+      "name": "Detailed Examples",
+      "title": "components/Cards/GarbageCollectionCard",
+      "importPath": "./packages/components/src/Cards/GarbageCollectionCard/GarbageCollectionCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-mediaplayercard--docs": {
+      "id": "components-cards-mediaplayercard--docs",
+      "title": "components/Cards/MediaPlayerCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/MediaPlayerCard/MediaPlayerCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-mediaplayercard--media-player-card-groups-example": {
+      "type": "story",
+      "id": "components-cards-mediaplayercard--media-player-card-groups-example",
+      "name": "Media Player Card Groups Example",
+      "title": "components/Cards/MediaPlayerCard",
+      "importPath": "./packages/components/src/Cards/MediaPlayerCard/MediaPlayerCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-picturecard--docs": {
+      "id": "components-cards-picturecard--docs",
+      "title": "components/Cards/PictureCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/PictureCard/PictureCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-sensorcard--docs": {
+      "id": "components-cards-sensorcard--docs",
+      "title": "components/Cards/SensorCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/SensorCard/SensorCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-sidebarcard--docs": {
+      "id": "components-cards-sidebarcard--docs",
+      "title": "components/Cards/SidebarCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/SidebarCard/SidebarCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-sidebarcard--sidebar-example": {
+      "type": "story",
+      "id": "components-cards-sidebarcard--sidebar-example",
+      "name": "Sidebar Example",
+      "title": "components/Cards/SidebarCard",
+      "importPath": "./packages/components/src/Cards/SidebarCard/SidebarCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-sidebarcard--sidebar-tooltips-when-closed-example": {
+      "type": "story",
+      "id": "components-cards-sidebarcard--sidebar-tooltips-when-closed-example",
+      "name": "Sidebar Tooltips When Closed Example",
+      "title": "components/Cards/SidebarCard",
+      "importPath": "./packages/components/src/Cards/SidebarCard/SidebarCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-sidebarcard--custom-menu-items-example": {
+      "type": "story",
+      "id": "components-cards-sidebarcard--custom-menu-items-example",
+      "name": "Custom Menu Items Example",
+      "title": "components/Cards/SidebarCard",
+      "importPath": "./packages/components/src/Cards/SidebarCard/SidebarCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-sidebarcard--custom-sidebar-width-example": {
+      "type": "story",
+      "id": "components-cards-sidebarcard--custom-sidebar-width-example",
+      "name": "Custom Sidebar Width Example",
+      "title": "components/Cards/SidebarCard",
+      "importPath": "./packages/components/src/Cards/SidebarCard/SidebarCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-timecard--docs": {
+      "id": "components-cards-timecard--docs",
+      "title": "components/Cards/TimeCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/TimeCard/TimeCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-timecard--without-date-example": {
+      "type": "story",
+      "id": "components-cards-timecard--without-date-example",
+      "name": "Without Date Example",
+      "title": "components/Cards/TimeCard",
+      "importPath": "./packages/components/src/Cards/TimeCard/TimeCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-triggercard--docs": {
+      "id": "components-cards-triggercard--docs",
+      "title": "components/Cards/TriggerCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/TriggerCard/TriggerCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-vacuumcard--docs": {
+      "id": "components-cards-vacuumcard--docs",
+      "title": "components/Cards/VacuumCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/VacuumCard/VacuumCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-vacuumcard--custom-shortcuts": {
+      "type": "story",
+      "id": "components-cards-vacuumcard--custom-shortcuts",
+      "name": "Custom Shortcuts",
+      "title": "components/Cards/VacuumCard",
+      "importPath": "./packages/components/src/Cards/VacuumCard/VacuumCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-weathercard--docs": {
+      "id": "components-cards-weathercard--docs",
+      "title": "components/Cards/WeatherCard",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Cards/WeatherCard/WeatherCard.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-cards-weathercard--without-forecast-example": {
+      "type": "story",
+      "id": "components-cards-weathercard--without-forecast-example",
+      "name": "Without Forecast Example",
+      "title": "components/Cards/WeatherCard",
+      "importPath": "./packages/components/src/Cards/WeatherCard/WeatherCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-weathercard--without-current-example": {
+      "type": "story",
+      "id": "components-cards-weathercard--without-current-example",
+      "name": "Without Current Example",
+      "title": "components/Cards/WeatherCard",
+      "importPath": "./packages/components/src/Cards/WeatherCard/WeatherCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-cards-weathercard--with-sensors-examples": {
+      "type": "story",
+      "id": "components-cards-weathercard--with-sensors-examples",
+      "name": "With Sensors Examples",
+      "title": "components/Cards/WeatherCard",
+      "importPath": "./packages/components/src/Cards/WeatherCard/WeatherCard.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-hooks-usebreakpoint--docs": {
+      "id": "components-hooks-usebreakpoint--docs",
+      "title": "components/hooks/useBreakpoint",
+      "name": "Docs",
+      "importPath": "./packages/components/src/hooks/useBreakpoint.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-hooks-usebreakpoint--custom-breakpoints": {
+      "type": "story",
+      "id": "components-hooks-usebreakpoint--custom-breakpoints",
+      "name": "Custom Breakpoints",
+      "title": "components/hooks/useBreakpoint",
+      "importPath": "./packages/components/src/hooks/useBreakpoint.stories.tsx",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-shared-alert--docs": {
+      "id": "components-shared-alert--docs",
+      "title": "components/Shared/Alert",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Alert/Alert.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-column--docs": {
+      "id": "components-shared-column--docs",
+      "title": "components/Shared/Column",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Column/Column.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-controlslider--docs": {
+      "id": "components-shared-controlslider--docs",
+      "title": "components/Shared/ControlSlider",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/ControlSlider/ControlSlider.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-controlslidercircular--docs": {
+      "id": "components-shared-controlslidercircular--docs",
+      "title": "components/Shared/ControlSliderCircular",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/ControlSliderCircular/ControlSliderCircular.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-controltoggle--docs": {
+      "id": "components-shared-controltoggle--docs",
+      "title": "components/Shared/ControlToggle",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/ControlToggle/ControlSwitch.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-alarm-alarmcontrols--docs": {
+      "id": "components-shared-entity-alarm-alarmcontrols--docs",
+      "title": "components/Shared/Entity/Alarm/AlarmControls",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Alarm/AlarmControls/AlarmControls.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-climate-climatecontrols--docs": {
+      "id": "components-shared-entity-climate-climatecontrols--docs",
+      "title": "components/Shared/Entity/Climate/ClimateControls",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Climate/ClimateControls/ClimateControls.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-cover-covercontrols--docs": {
+      "id": "components-shared-entity-cover-covercontrols--docs",
+      "title": "components/Shared/Entity/Cover/CoverControls",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Cover/CoverControls/CoverControls.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-light-colorpicker--docs": {
+      "id": "components-shared-entity-light-colorpicker--docs",
+      "title": "components/Shared/Entity/Light/ColorPicker",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Light/ColorPicker/ColorPicker.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-light-colortemppicker--docs": {
+      "id": "components-shared-entity-light-colortemppicker--docs",
+      "title": "components/Shared/Entity/Light/ColorTempPicker",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Light/ColorTempPicker/ColorTempPicker.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-light-lightcontrols--docs": {
+      "id": "components-shared-entity-light-lightcontrols--docs",
+      "title": "components/Shared/Entity/Light/LightControls",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Light/LightControls/LightControls.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-light-lightcontrols--detailed-example": {
+      "type": "story",
+      "id": "components-shared-entity-light-lightcontrols--detailed-example",
+      "name": "Detailed Example",
+      "title": "components/Shared/Entity/Light/LightControls",
+      "importPath": "./packages/components/src/Shared/Entity/Light/LightControls/LightControls.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-shared-entity-light-lightcontrols--only-brightness": {
+      "type": "story",
+      "id": "components-shared-entity-light-lightcontrols--only-brightness",
+      "name": "Only Brightness",
+      "title": "components/Shared/Entity/Light/LightControls",
+      "importPath": "./packages/components/src/Shared/Entity/Light/LightControls/LightControls.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-shared-entity-light-lightcontrols--no-temperature": {
+      "type": "story",
+      "id": "components-shared-entity-light-lightcontrols--no-temperature",
+      "name": "No Temperature",
+      "title": "components/Shared/Entity/Light/LightControls",
+      "importPath": "./packages/components/src/Shared/Entity/Light/LightControls/LightControls.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-shared-entity-miscellaneous-buttonbar--docs": {
+      "id": "components-shared-entity-miscellaneous-buttonbar--docs",
+      "title": "components/Shared/Entity/Miscellaneous/ButtonBar",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Miscellaneous/ButtonBar/ButtonBar.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-miscellaneous-buttongroup--docs": {
+      "id": "components-shared-entity-miscellaneous-buttongroup--docs",
+      "title": "components/Shared/Entity/Miscellaneous/ButtonGroup",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Miscellaneous/ButtonGroup/ButtonGroup.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-miscellaneous-entityattributes--docs": {
+      "id": "components-shared-entity-miscellaneous-entityattributes--docs",
+      "title": "components/Shared/Entity/Miscellaneous/EntityAttributes",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Miscellaneous/EntityAttributes/EntityAttributes.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-miscellaneous-logbookrenderer--docs": {
+      "id": "components-shared-entity-miscellaneous-logbookrenderer--docs",
+      "title": "components/Shared/Entity/Miscellaneous/LogBookRenderer",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Miscellaneous/LogBookRenderer/LogBookRenderer.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-switch-switchcontrols--docs": {
+      "id": "components-shared-entity-switch-switchcontrols--docs",
+      "title": "components/Shared/Entity/Switch/SwitchControls",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Switch/SwitchControls/SwitchControls.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-entity-vacuum-vacuumcontrols--docs": {
+      "id": "components-shared-entity-vacuum-vacuumcontrols--docs",
+      "title": "components/Shared/Entity/Vacuum/VacuumControls",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Entity/Vacuum/VacuumControls/VacuumControls.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-menu--docs": {
+      "id": "components-shared-menu--docs",
+      "title": "components/Shared/Menu",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Menu/Menu.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-modal--docs": {
+      "id": "components-shared-modal--docs",
+      "title": "components/Shared/Modal",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Modal/Modal.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-modal--custom-modal": {
+      "type": "story",
+      "id": "components-shared-modal--custom-modal",
+      "name": "Custom Modal",
+      "title": "components/Shared/Modal",
+      "importPath": "./packages/components/src/Shared/Modal/Modal.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-shared-modal--modal-props": {
+      "type": "story",
+      "id": "components-shared-modal--modal-props",
+      "name": "Modal Props",
+      "title": "components/Shared/Modal",
+      "importPath": "./packages/components/src/Shared/Modal/Modal.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-shared-modal--modal-by-domain": {
+      "type": "story",
+      "id": "components-shared-modal--modal-by-domain",
+      "name": "Modal By Domain",
+      "title": "components/Shared/Modal",
+      "importPath": "./packages/components/src/Shared/Modal/Modal.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "components-shared-preloadimage--docs": {
+      "id": "components-shared-preloadimage--docs",
+      "title": "components/Shared/PreloadImage",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/PreloadImage/PreloadImage.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-rangeslider--docs": {
+      "id": "components-shared-rangeslider--docs",
+      "title": "components/Shared/RangeSlider",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/RangeSlider/RangeSlider.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-ripples--docs": {
+      "id": "components-shared-ripples--docs",
+      "title": "components/Shared/Ripples",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Ripples/Ripples.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-row--docs": {
+      "id": "components-shared-row--docs",
+      "title": "components/Shared/Row",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Row/Row.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-shared-tooltip--docs": {
+      "id": "components-shared-tooltip--docs",
+      "title": "components/Shared/Tooltip",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Shared/Tooltip/Tooltip.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-group--docs": {
+      "id": "components-group--docs",
+      "title": "COMPONENTS/Group",
+      "name": "Docs",
+      "importPath": "./packages/components/src/Group/Group.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-themeprovider--docs": {
+      "id": "components-themeprovider--docs",
+      "title": "COMPONENTS/ThemeProvider",
+      "name": "Docs",
+      "importPath": "./packages/components/src/ThemeProvider/ThemeProvider.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "components-themeprovider--custom-breakpoints": {
+      "type": "story",
+      "id": "components-themeprovider--custom-breakpoints",
+      "name": "Custom Breakpoints",
+      "title": "COMPONENTS/ThemeProvider",
+      "importPath": "./packages/components/src/ThemeProvider/ThemeProvider.stories.tsx",
+      "componentPath": "./packages/components/src",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ]
+    },
+    "core-constants--docs": {
+      "id": "core-constants--docs",
+      "title": "core/Constants",
+      "name": "Docs",
+      "importPath": "./packages/core/src/constants.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "core-hassconnect--docs": {
+      "id": "core-hassconnect--docs",
+      "title": "core/HassConnect",
+      "name": "Docs",
+      "importPath": "./packages/core/src/HassConnect/HassConnect.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "core-helpers--docs": {
+      "id": "core-helpers--docs",
+      "title": "core/Helpers",
+      "name": "Docs",
+      "importPath": "./packages/core/src/helpers.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "core-hooks-useareas--docs": {
+      "id": "core-hooks-useareas--docs",
+      "title": "core/hooks/useAreas",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useAreas/useAreasDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useAreas/examples/useAreasDataExample.stories.tsx",
+        "./packages/core/src/hooks/useAreas/examples/useAreasExample.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usecamera--docs": {
+      "id": "core-hooks-usecamera--docs",
+      "title": "core/hooks/useCamera",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useCamera/useCamera.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "core-hooks-useconfig--docs": {
+      "id": "core-hooks-useconfig--docs",
+      "title": "core/hooks/useConfig",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useConfig/useConfigDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useConfig/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usedevice--docs": {
+      "id": "core-hooks-usedevice--docs",
+      "title": "core/hooks/useDevice",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useDevice/useDeviceDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useDevice/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useentities--docs": {
+      "id": "core-hooks-useentities--docs",
+      "title": "core/hooks/useEntities",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useEntities/useEntities.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useentity--docs": {
+      "id": "core-hooks-useentity--docs",
+      "title": "core/hooks/useEntity",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useEntity/useEntity.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usefloors--docs": {
+      "id": "core-hooks-usefloors--docs",
+      "title": "core/hooks/useFloors",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useFloors/useFloorsDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useFloors/examples/useFloorsExample.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass--docs": {
+      "id": "core-hooks-usehass--docs",
+      "title": "core/hooks/useHass",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useHass/examples/helper.stories.tsx",
+        "./packages/core/src/hooks/useHass/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass-callapi--docs": {
+      "id": "core-hooks-usehass-callapi--docs",
+      "title": "core/hooks/useHass/callApi",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.callApi.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass-callservice--docs": {
+      "id": "core-hooks-usehass-callservice--docs",
+      "title": "core/hooks/useHass/callService",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.callService.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass-getallentities--docs": {
+      "id": "core-hooks-usehass-getallentities--docs",
+      "title": "core/hooks/useHass/getAllEntities",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.getAllEntities.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass-helpers--docs": {
+      "id": "core-hooks-usehass-helpers--docs",
+      "title": "core/hooks/useHass/helpers",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.helpers.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useHass/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass-joinhassurl--docs": {
+      "id": "core-hooks-usehass-joinhassurl--docs",
+      "title": "core/hooks/useHass/joinHassUrl",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.joinHassUrl.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass-programmatic--docs": {
+      "id": "core-hooks-usehass-programmatic--docs",
+      "title": "core/hooks/useHass/programmatic",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.programmatic.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehass-styling--docs": {
+      "id": "core-hooks-usehass-styling--docs",
+      "title": "core/hooks/useHass/styling",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHass/useHass.styling.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehastatus--docs": {
+      "id": "core-hooks-usehastatus--docs",
+      "title": "core/hooks/useHaStatus",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHaStatus/useHaStatusDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useHaStatus/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usehistory--docs": {
+      "id": "core-hooks-usehistory--docs",
+      "title": "core/hooks/useHistory",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useHistory/useHistoryDocs.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useicon--docs": {
+      "id": "core-hooks-useicon--docs",
+      "title": "core/hooks/useIcon",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useIcon/useIcon.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useiconbydomain--docs": {
+      "id": "core-hooks-useiconbydomain--docs",
+      "title": "core/hooks/useIconByDomain",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useIcon/useIconByDomain.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useiconbyentity--docs": {
+      "id": "core-hooks-useiconbyentity--docs",
+      "title": "core/hooks/useIconByEntity",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useIcon/useIconByEntity.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-uselightbrightness--docs": {
+      "id": "core-hooks-uselightbrightness--docs",
+      "title": "core/hooks/useLightBrightness",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useLightBrightness/useLightBrightnessDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useLightBrightness/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-uselightcolor--docs": {
+      "id": "core-hooks-uselightcolor--docs",
+      "title": "core/hooks/useLightColor",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useLightColor/useLightColorDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useLightColor/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-uselighttemperature--docs": {
+      "id": "core-hooks-uselighttemperature--docs",
+      "title": "core/hooks/useLightTemperature",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useLightTemperature/useLightTemperatureDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useLightTemperature/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-uselocaledata--docs": {
+      "id": "core-hooks-uselocaledata--docs",
+      "title": "core/hooks/useLocaleData",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useLocaleData/useLocaleDataDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useLocaleData/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-uselocales--docs": {
+      "id": "core-hooks-uselocales--docs",
+      "title": "core/hooks/useLocales",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useLocale/useLocale.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "core-hooks-uselogs--docs": {
+      "id": "core-hooks-uselogs--docs",
+      "title": "core/hooks/useLogs",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useLogs/useLogsDocs.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-uselowdevices--docs": {
+      "id": "core-hooks-uselowdevices--docs",
+      "title": "core/hooks/useLowDevices",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useLowDevices/useLowDevices.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "core-hooks-useregistrydata--docs": {
+      "id": "core-hooks-useregistrydata--docs",
+      "title": "core/hooks/useRegistryData",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useRegistryData/useRegistryData.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useRegistryData/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useservice--docs": {
+      "id": "core-hooks-useservice--docs",
+      "title": "core/hooks/useService",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useService/useService.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usesubscribeentity--docs": {
+      "id": "core-hooks-usesubscribeentity--docs",
+      "title": "core/hooks/useSubscribeEntity",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useSubscribeEntity/useSubscribeEntity.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-usetemplate--docs": {
+      "id": "core-hooks-usetemplate--docs",
+      "title": "core/hooks/useTemplate",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useTemplate/useTemplate.stories.tsx",
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs"
+      ],
+      "storiesImports": []
+    },
+    "core-hooks-useuser--docs": {
+      "id": "core-hooks-useuser--docs",
+      "title": "core/hooks/useUser",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useUser/useUserDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useUser/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useusers--docs": {
+      "id": "core-hooks-useusers--docs",
+      "title": "core/hooks/useUsers",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useUsers/useUsersDocs.mdx",
+      "storiesImports": [
+        "./packages/core/src/hooks/useUsers/examples/primary.stories.tsx"
+      ],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-hooks-useweather--docs": {
+      "id": "core-hooks-useweather--docs",
+      "title": "core/hooks/useWeather",
+      "name": "Docs",
+      "importPath": "./packages/core/src/hooks/useWeather/useWeatherDocs.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": [
+        "dev",
+        "test",
+        "autodocs",
+        "unattached-mdx"
+      ]
+    },
+    "core-src-hooks-useareas-examples-useareasdataexample--primary-example-data": {
+      "type": "story",
+      "id": "core-src-hooks-useareas-examples-useareasdataexample--primary-example-data",
+      "name": "Primary Example Data",
+      "title": "core/src/hooks/useAreas/examples/useAreasDataExample",
+      "importPath": "./packages/core/src/hooks/useAreas/examples/useAreasDataExample.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-useareas-examples-useareasexample--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-useareas-examples-useareasexample--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useAreas/examples/useAreasExample",
+      "importPath": "./packages/core/src/hooks/useAreas/examples/useAreasExample.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-useconfig-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-useconfig-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useConfig/examples/primary",
+      "importPath": "./packages/core/src/hooks/useConfig/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-usedevice-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-usedevice-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useDevice/examples/primary",
+      "importPath": "./packages/core/src/hooks/useDevice/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-usefloors-examples-usefloorsexample--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-usefloors-examples-usefloorsexample--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useFloors/examples/useFloorsExample",
+      "importPath": "./packages/core/src/hooks/useFloors/examples/useFloorsExample.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-usehass-examples-helper--helpers-example": {
+      "type": "story",
+      "id": "core-src-hooks-usehass-examples-helper--helpers-example",
+      "name": "Helpers Example",
+      "title": "core/src/hooks/useHass/examples/helper",
+      "importPath": "./packages/core/src/hooks/useHass/examples/helper.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-usehass-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-usehass-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useHass/examples/primary",
+      "importPath": "./packages/core/src/hooks/useHass/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-usehastatus-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-usehastatus-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useHaStatus/examples/primary",
+      "importPath": "./packages/core/src/hooks/useHaStatus/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-uselightbrightness-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-uselightbrightness-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useLightBrightness/examples/primary",
+      "importPath": "./packages/core/src/hooks/useLightBrightness/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-uselightcolor-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-uselightcolor-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useLightColor/examples/primary",
+      "importPath": "./packages/core/src/hooks/useLightColor/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-uselighttemperature-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-uselighttemperature-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useLightTemperature/examples/primary",
+      "importPath": "./packages/core/src/hooks/useLightTemperature/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-uselocaledata-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-uselocaledata-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useLocaleData/examples/primary",
+      "importPath": "./packages/core/src/hooks/useLocaleData/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-useregistrydata-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-useregistrydata-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useRegistryData/examples/primary",
+      "importPath": "./packages/core/src/hooks/useRegistryData/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-useuser-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-useuser-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useUser/examples/primary",
+      "importPath": "./packages/core/src/hooks/useUser/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    },
+    "core-src-hooks-useusers-examples-primary--primary-example": {
+      "type": "story",
+      "id": "core-src-hooks-useusers-examples-primary--primary-example",
+      "name": "Primary Example",
+      "title": "core/src/hooks/useUsers/examples/primary",
+      "importPath": "./packages/core/src/hooks/useUsers/examples/primary.stories.tsx",
+      "tags": [
+        "test"
+      ]
+    }
+  }
+}
