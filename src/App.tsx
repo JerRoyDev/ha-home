@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@hakit/components';
+import { ThemeProvider } from '@/components/theme-provider';
 import { HassConnect } from '@hakit/core';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import FamilyPanel from './FamilyPanel';
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <HassConnect hassUrl={import.meta.env.VITE_HA_URL} hassToken={import.meta.env.VITE_HA_TOKEN}>
-        <ThemeProvider />
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <HashRouter>
           <Routes>
             <Route path='/family-panel' element={<FamilyPanel />} />
@@ -16,8 +16,10 @@ function App() {
             <Route path='*' element={<FamilyPanel />} />
           </Routes>
         </HashRouter>
+        </ThemeProvider>
       </HassConnect>
     </>
-  );}
+  );
+}
 
 export default App;

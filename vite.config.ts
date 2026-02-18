@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-
+import path from 'path';
 import dotenv from 'dotenv';
 import tailwindcss from '@tailwindcss/vite';
 dotenv.config();
@@ -18,5 +18,10 @@ if (typeof VITE_FOLDER_NAME === 'undefined' || VITE_FOLDER_NAME === '') {
 // https://vite.dev/config/
 export default defineConfig({
   base: `/local/${VITE_FOLDER_NAME}/`,
-  plugins: [react(), tailwindcss(),],
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 });
