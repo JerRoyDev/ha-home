@@ -1,7 +1,7 @@
 import React from 'react';
 import { Home, MapPin, Wifi, Clock, BatteryCharging, Leaf, Smartphone } from 'lucide-react';
-import PhoneFrame from './phoneCard/PhoneFrame';
-import PhoneStatusBar from './phoneCard/PhoneStatusBar';
+import PhoneFrame from './PhoneFrame';
+import PhoneStatusBar from './PhoneStatusBar';
 import type { ProfileData } from './ProfileCard';
 
 interface ProfileModalProps {

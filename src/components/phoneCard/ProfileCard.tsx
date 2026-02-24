@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+// @ts-ignore
 import { useEntity } from '@hakit/core';
 import { Home, MapPin } from 'lucide-react';
 
-import PhoneFrame from './phoneCard/PhoneFrame';
+import PhoneFrame from './PhoneFrame';
 
 import ProfileModal from './ProfileModal';
-import PhoneStatusBar from './phoneCard/PhoneStatusBar';
+import PhoneStatusBar from './PhoneStatusBar';
 
 export interface ProfileData {
   person: string;
