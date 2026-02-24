@@ -1,16 +1,18 @@
-import CustomProfileCard from './components/CustomProfileCard';
+import ProfileCard from './components/ProfileCard';
 
 function FamilyPanel() {
   const baseUrl = import.meta.env.BASE_URL;
   return (
-    // Container for the entire family panel
-    <div className='flex justify-center gap-3 p-4 border border-white/50 rounded-2xl min-h-screen max-w-5xl mx-auto shadow-md'>
-      {/* Profile Cards Container */}
-      <div className='flex flex-row h-fit gap-3 border border-white p-4 shadow-md'>
-        <CustomProfileCard person='Jerry' avatarUrl={`${baseUrl}images/jerry-avatar.jpg`} mobile='jerrys_mobil' />
-        <CustomProfileCard person='Alice' avatarUrl={`${baseUrl}images/alice-avatar.jpg`} mobile='alices_mobil' />
-        <CustomProfileCard person='Linnea' avatarUrl={`${baseUrl}images/linnea-avatar.jpg`} mobile='vog_l29' />
+    <div className='grid grid-cols-[auto_1fr] gap-6 p-4 border rounded-2xl min-h-screen max-w-5xl mx-auto shadow-md'>
+      {/* Sidokolumn med profilkort */}
+      <div className='flex flex-col gap-4 border border p-4 shadow-md'>
+        <ProfileCard person='Jerry' avatarUrl={`${baseUrl}images/jerry-avatar.jpg`} mobile='jerrys_mobil' />
+        <ProfileCard person='Alice' avatarUrl={`${baseUrl}images/alice-avatar.jpg`} mobile='alices_mobil' />
+        <ProfileCard person='Linnea' avatarUrl={`${baseUrl}images/linnea-avatar.jpg`} mobile='vog_l29' />
+        <ProfileCard person='Oliver' avatarUrl={`${baseUrl}images/oliver-avatar.jpg`} mobile='' />
       </div>
+      {/* Huvudpanel (tom, redo för fler komponenter) */}
+      <div className='w-full h-full'></div>
     </div>
   );
 }
