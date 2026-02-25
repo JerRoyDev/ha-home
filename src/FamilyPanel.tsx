@@ -1,3 +1,4 @@
+import { CalendarTest } from './components/calendar/CalendarTest';
 import ProfileCard from './components/phoneCard/ProfileCard';
 
 function FamilyPanel() {
@@ -12,7 +13,9 @@ function FamilyPanel() {
         <ProfileCard person='Oliver' avatarUrl={`${baseUrl}images/oliver-avatar.jpg`} mobile='' />
       </div>
       {/* Huvudpanel (tom, redo för fler komponenter) */}
-      <div className='w-full h-full'></div>
+      <div className=''>
+        <CalendarTest />
+      </div>
     </div>
   );
 }
