@@ -4,7 +4,6 @@ import { CalendarTest } from './components/calendar/CalendarTest';
 import ProfileCard from './components/phoneCard/ProfileCard';
 
 function FamilyPanel() {
-
   return (
     <div className='grid grid-cols-[auto_1fr] gap-6 p-4 border rounded-2xl min-h-screen max-w-5xl mx-auto shadow-md'>
       {/* Sidokolumn med profilkort */}

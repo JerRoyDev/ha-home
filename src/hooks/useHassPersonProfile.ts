@@ -32,15 +32,18 @@ export function useHassPersonProfile(person: string, mobile: string): HassProfil
   // assetBase kommer vara "/local/ha-dashboard/" (eller vad du satt i din config)
   const assetBase = import.meta.env.BASE_URL;
 
-  const raw = useMemo(() => ({
-    person: entities[`person.${person.toLowerCase()}`],
-    battery: entities[`sensor.${mobile}_battery_level`],
-    batteryState: entities[`sensor.${mobile}_battery_state`],
-    location: entities[`sensor.${mobile}_geocoded_location`],
-    powerSave: entities[`binary_sensor.${mobile}_power_save`],
-    ringMode: entities[`sensor.${mobile}_ringer_mode`],
-    lastSeen: entities[`sensor.${mobile}_last_seen`],
-  }), [entities, person, mobile]);
+  const raw = useMemo(
+    () => ({
+      person: entities[`person.${person.toLowerCase()}`],
+      battery: entities[`sensor.${mobile}_battery_level`],
+      batteryState: entities[`sensor.${mobile}_battery_state`],
+      location: entities[`sensor.${mobile}_geocoded_location`],
+      powerSave: entities[`binary_sensor.${mobile}_power_save`],
+      ringMode: entities[`sensor.${mobile}_ringer_mode`],
+      lastSeen: entities[`sensor.${mobile}_last_seen`],
+    }),
+    [entities, person, mobile]
+  );
 
   // 2. Beräkna Avatar-bilden
   const picture = useMemo(() => {
@@ -72,6 +75,6 @@ export function useHassPersonProfile(person: string, mobile: string): HassProfil
     isPowerSave,
     ringMode,
     picture, // Den färdiga bilden!
-    unavailable
+    unavailable,
   };
 }

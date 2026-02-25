@@ -18,7 +18,6 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ person, mobile, debug }) => {
 
   const { isHome, batteryLevel, isCharging, isPowerSave, ringMode, picture, raw, unavailable } = data;
 
-
   // Modal state
   const [open, setOpen] = useState(false);
 
