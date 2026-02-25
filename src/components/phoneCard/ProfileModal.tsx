@@ -1,15 +1,30 @@
 // ProfileModal.tsx - Modal med detaljerad profilinfo
 import React from 'react';
-import { Home, MapPin, Wifi, Clock, BatteryCharging, Leaf, Smartphone } from 'lucide-react';
+import { Home, MapPin, Wifi, Clock, BatteryCharging, Leaf, Smartphone, AlertCircle } from 'lucide-react';
 import PhoneFrame from './PhoneFrame';
 import PhoneStatusBar from './PhoneStatusBar';
-import type { HassProfileData } from '@/hooks/useHassPersonProfile';
+import type { HassProfileData } from '../../hooks/useHassPersonProfile';
 
 interface ProfileModalProps {
   data: HassProfileData;
   open: boolean;
   onClose: () => void;
 }
+
+// 1. En liten hjälpfunktion för att formatera datum snyggt.
+// Returnerar antingen ett klockslag (om det var idag) eller ett datum + tid.
+const formatTimestamp = (isoString?: string) => {
+  if (!isoString) return 'Okänt';
+
+  const date = new Date(isoString);
+  const now = new Date();
+  const isToday = date.toDateString() === now.toDateString();
+
+  if (isToday) {
+    return `Idag ${date.toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit' })}`;
+  }
+  return date.toLocaleString('sv-SE', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+};
 
 const InfoRow: React.FC<{ icon: React.ReactNode; label: string; value: string; accent?: boolean }> = ({ icon, label, value, accent }) => (
   <div className='flex items-center gap-3 py-2.5 px-3 rounded-lg bg-phone-frame/50'>
@@ -23,6 +38,11 @@ const InfoRow: React.FC<{ icon: React.ReactNode; label: string; value: string; a
 
 const ProfileModal: React.FC<ProfileModalProps> = ({ data, open, onClose }) => {
   if (!open) return null;
+
+  // Plocka ut states från raw-objektet för Modal-specifik info
+  const locationState = data.raw.location?.state;
+  const wifiState = data.raw.lastSeen?.attributes?.wifi; // Vissa HA-integrationer lägger WiFi under attribut
+  const lastUpdatedPerson = data.raw.person?.last_updated;
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center' onClick={onClose}>
@@ -45,23 +65,37 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ data, open, onClose }) => {
             {/* Header with avatar */}
             <div className='flex flex-col items-center gap-3 pt-2 pb-4'>
               <div className='relative'>
-                <div className='w-24 h-24 rounded-full overflow-hidden border-3 border-phone-highlight/40 shadow-xl'>
-                  <img src={data.personAvatar} alt={data.person} className='w-full h-full object-cover' />
-                </div>
                 <div
-                  className={`absolute -bottom-1 -right-1 w-7 h-7 rounded-full border-2 border-phone-screen flex items-center justify-center ${data.isHome ? 'bg-success' : 'bg-muted'}`}
+                  className={`w-24 h-24 rounded-full overflow-hidden border-3 shadow-xl transition-colors ${
+                    data.unavailable ? 'border-destructive/50 grayscale' : 'border-phone-highlight/40'
+                  }`}
                 >
-                  {data.isHome ? (
+                  <img src={data.picture} alt={data.person} className='w-full h-full object-cover' />
+                </div>
+
+                <div
+                  className={`absolute -bottom-1 -right-1 w-7 h-7 rounded-full border-2 border-phone-screen flex items-center justify-center ${
+                    data.unavailable ? 'bg-destructive' : data.isHome ? 'bg-success' : 'bg-muted'
+                  }`}
+                >
+                  {data.unavailable ? (
+                    <AlertCircle size={14} className='text-white' />
+                  ) : data.isHome ? (
                     <Home size={14} className='text-success-foreground' />
                   ) : (
                     <MapPin size={14} className='text-muted-foreground' />
                   )}
                 </div>
               </div>
+
               <div className='text-center'>
-                <h2 className='text-xl font-bold text-card-foreground'>{data.person}</h2>
-                <p className={`text-sm font-medium ${data.isHome ? 'text-success' : 'text-muted-foreground'}`}>
-                  {data.isHome ? 'Hemma' : 'Borta'}
+                <h2 className={`text-xl font-bold ${data.unavailable ? 'text-muted-foreground' : 'text-card-foreground'}`}>
+                  {data.person}
+                </h2>
+                <p
+                  className={`text-sm font-medium ${data.unavailable ? 'text-destructive' : data.isHome ? 'text-success' : 'text-muted-foreground'}`}
+                >
+                  {data.unavailable ? 'Otillgänglig' : data.isHome ? 'Hemma' : 'Borta'}
                 </p>
               </div>
             </div>
@@ -74,36 +108,47 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ data, open, onClose }) => {
               <p className='text-[11px] font-semibold text-muted-foreground uppercase tracking-widest px-1'>Enhetsinformation</p>
 
               <InfoRow icon={<Smartphone size={16} />} label='Enhet' value={`${data.person}s telefon`} />
-              <InfoRow
-                icon={<BatteryCharging size={16} />}
-                label='Batteri'
-                value={`${data.batteryLevel}%${data.isCharging ? ' · Laddar' : ''}`}
-                accent={data.isCharging}
-              />
-              {data.isPowerSave && <InfoRow icon={<Leaf size={16} />} label='Energisparläge' value='Aktivt' accent />}
-              {data.location && <InfoRow icon={<MapPin size={16} />} label='Plats' value={data.location} />}
-              {data.wifiNetwork && <InfoRow icon={<Wifi size={16} />} label='Wi-Fi' value={data.wifiNetwork} />}
-              {data.lastSeen && <InfoRow icon={<Clock size={16} />} label='Senast sedd' value={data.lastSeen} />}
+
+              {!data.unavailable && (
+                <>
+                  <InfoRow
+                    icon={<BatteryCharging size={16} />}
+                    label='Batteri'
+                    value={`${data.batteryLevel}%${data.isCharging ? ' · Laddar' : ''}`}
+                    accent={data.isCharging}
+                  />
+                  {data.isPowerSave && <InfoRow icon={<Leaf size={16} />} label='Energisparläge' value='Aktivt' accent />}
+                  {locationState && <InfoRow icon={<MapPin size={16} />} label='Plats' value={locationState} />}
+                  {wifiState && <InfoRow icon={<Wifi size={16} />} label='Wi-Fi' value={wifiState} />}
+
+                  {/* Här använder vi raw.person.last_updated istället för en statisk sträng */}
+                  <InfoRow icon={<Clock size={16} />} label='Senast uppdaterad' value={formatTimestamp(lastUpdatedPerson)} />
+                </>
+              )}
+
+              {data.unavailable && <InfoRow icon={<AlertCircle size={16} />} label='Status' value='Kunde inte nå enheten' accent={false} />}
             </div>
 
-            {/* Status badges */}
-            <div className='flex flex-wrap gap-2 pt-2'>
-              {data.isHome && (
-                <span className='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-success/15 text-success text-xs font-medium'>
-                  <Home size={12} /> Hemma
-                </span>
-              )}
-              {data.isCharging && (
-                <span className='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-warning/15 text-warning text-xs font-medium'>
-                  <BatteryCharging size={12} /> Laddar
-                </span>
-              )}
-              {data.isPowerSave && (
-                <span className='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-success/15 text-success text-xs font-medium'>
-                  <Leaf size={12} /> Energispar
-                </span>
-              )}
-            </div>
+            {/* Status badges - Dölj om enheten är otillgänglig */}
+            {!data.unavailable && (
+              <div className='flex flex-wrap gap-2 pt-2'>
+                {data.isHome && (
+                  <span className='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-success/15 text-success text-xs font-medium'>
+                    <Home size={12} /> Hemma
+                  </span>
+                )}
+                {data.isCharging && (
+                  <span className='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-warning/15 text-warning text-xs font-medium'>
+                    <BatteryCharging size={12} /> Laddar
+                  </span>
+                )}
+                {data.isPowerSave && (
+                  <span className='inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-success/15 text-success text-xs font-medium'>
+                    <Leaf size={12} /> Energispar
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </PhoneFrame>
 

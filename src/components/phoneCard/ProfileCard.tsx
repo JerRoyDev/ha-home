@@ -1,6 +1,6 @@
 // ProfileCard.tsx - Visar kompakt profilkort för person
 import React, { useState } from 'react';
-import { Home, MapPin } from 'lucide-react';
+import { Home, MapPin, AlertCircle } from 'lucide-react';
 import PhoneFrame from './PhoneFrame';
 import ProfileModal from './ProfileModal';
 import PhoneStatusBar from './PhoneStatusBar';
@@ -8,59 +8,65 @@ import { useHassPersonProfile } from '../../hooks/useHassPersonProfile';
 
 interface ProfileCardProps {
   person: string;
-  avatarUrl?: string; // ex:  avatarUrl={`${baseUrl}images/jerry-avatar.jpg`}
   mobile: string;
   debug?: boolean;
 }
 
-const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile, debug }) => {
-  // Hämta data från Home Assistant via customhook
-  const data = useHassPersonProfile(person, mobile, debug);
+const ProfileCard: React.FC<ProfileCardProps> = ({ person, mobile, debug }) => {
+  // 1. Hämta datan rent och snyggt
+  const data = useHassPersonProfile(person, mobile);
 
+  const { isHome, batteryLevel, isCharging, isPowerSave, ringMode, picture, raw, unavailable } = data;
 
-  // Bestäm vilken bild som ska visas: prop > entityPicture > default
-  const defaultAvatar = 'public/images/avatar-default.svg';
-  const picture = avatarUrl || data.personAvatar || defaultAvatar;
 
   // Modal state
   const [open, setOpen] = useState(false);
 
+  if (debug) {
+    console.log(`[ProfileCard Debug] ${person}:`, data);
+  }
+
   return (
     <>
       <PhoneFrame size='compact' onClick={() => setOpen(true)}>
-        <PhoneStatusBar
-          batteryLevel={data.batteryLevel}
-          isCharging={data.isCharging}
-          isPowerSave={data.isPowerSave}
-          ringMode={data.ringMode}
-          size='compact'
-        />
-        {/* Main content */}
+        {/* All data är redan färdigberäknad från hooken */}
+        <PhoneStatusBar batteryLevel={batteryLevel} isCharging={isCharging} isPowerSave={isPowerSave} ringMode={ringMode} size='compact' />
+
         <div className='flex-1 flex flex-col items-center justify-center gap-2 px-3'>
-          {/* Avatar */}
           <div className='relative'>
-            <div className='w-20 h-20 rounded-full overflow-hidden border-2 border-phone-highlight/30 shadow-lg'>
-              <img src={picture} alt={data.person} className='w-full h-full object-cover' />
-            </div>
-            {/* Status dot */}
             <div
-              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-phone-screen flex items-center justify-center ${data.isHome ? 'bg-success' : 'bg-muted'}`}
+              className={`w-20 h-20 rounded-full overflow-hidden border-2 shadow-lg transition-colors ${
+                unavailable ? 'border-destructive/50 grayscale' : 'border-phone-highlight/30'
+              }`}
             >
-              {data.isHome ? (
+              <img src={picture} alt={person} className='w-full h-full object-cover' />
+            </div>
+
+            <div
+              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-phone-screen flex items-center justify-center shadow-sm ${
+                unavailable ? 'bg-destructive' : isHome ? 'bg-success' : 'bg-muted'
+              }`}
+            >
+              {unavailable ? (
+                <AlertCircle size={12} className='text-white' />
+              ) : isHome ? (
                 <Home size={12} className='text-success-foreground' />
               ) : (
                 <MapPin size={12} className='text-muted-foreground' />
               )}
             </div>
           </div>
-          {/* Name & status */}
+
           <div className='text-center'>
-            <p className='text-sm font-semibold text-card-foreground'>{data.person}</p>
-            {/* Visa inte hemma/borta i compact vy */}
-            {/* {data.isHome ? 'Hemma' : 'Borta'} visas endast i expanded */}
+            <p className={`text-sm font-semibold ${unavailable ? 'text-muted-foreground' : 'text-card-foreground'}`}>{person}</p>
+            {/* Tidsstämpel via raw-objektet ifall debug är igång */}
+            {debug && raw.person?.last_updated && (
+              <span className='text-[10px] text-muted-foreground block mt-1'>{new Date(raw.person.last_updated).toLocaleTimeString()}</span>
+            )}
           </div>
         </div>
       </PhoneFrame>
+
       <ProfileModal data={data} open={open} onClose={() => setOpen(false)} />
     </>
   );

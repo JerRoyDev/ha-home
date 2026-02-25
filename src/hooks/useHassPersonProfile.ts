@@ -1,121 +1,77 @@
 // useHassPersonProfile.ts - Custom hook för att hämta person- och mobilrelaterad data från Home Assistant
-
-
 import { useMemo } from 'react';
 import { useHass } from '../context/HassProvider';
-import { getEntityStateSafe } from '../lib/ha-entity-utils';
+import type { HassEntity } from 'home-assistant-js-websocket';
 
 export interface HassProfileData {
   person: string;
-  personAvatar?: string; // URL till personens avatar från entityn
+  raw: {
+    person?: HassEntity;
+    battery?: HassEntity;
+    batteryState?: HassEntity;
+    location?: HassEntity;
+    powerSave?: HassEntity;
+    ringMode?: HassEntity;
+    lastSeen?: HassEntity;
+  };
   isHome: boolean;
   batteryLevel: number;
   isCharging: boolean;
   isPowerSave: boolean;
   ringMode: 'normal' | 'silent' | 'vibrate';
-  location?: string;
-  wifiNetwork?: string;
-  lastSeen?: string;
-  // Nytt: flaggor för tillgänglighet
-  unavailable?: boolean; // true om någon viktig entity är otillgänglig
-  batteryUnavailable?: boolean;
-  personUnavailable?: boolean;
-  mobileUnavailable?: boolean; // true om ALLA mobilrelaterade sensorer är otillgängliga
+  // Detta är nu den slutgiltiga URL:en, färdig att användas i en <img />
+  picture: string;
+  unavailable: boolean;
 }
 
-/**
- * Custom hook för att hämta profilinfo för en person och mobil från Home Assistant
- * @param person namn på person (t.ex. 'Jerry')
- * @param mobile namn på mobil entity (t.ex. 'jerrys_mobil')
- * @param debug om true, logga HassProfileData till konsolen
- * @returns HassProfileData
- */
-import { useEffect } from 'react';
-export function useHassPersonProfile(person: string, mobile: string, debug?: boolean): HassProfileData {
+export function useHassPersonProfile(person: string, mobile: string): HassProfileData {
   const { entities } = useHass();
 
-  // Definiera entity keys och deras entityId-strängar
-  const entityKeys = [
-    { key: 'person', id: `person.${person.toLowerCase()}` },
-    { key: 'entityPicture', id: `` }, // specialhantering nedan
-    { key: 'battery', id: `sensor.${mobile}_battery_level` },
-    { key: 'batteryState', id: `sensor.${mobile}_battery_state` },
-    { key: 'powerSave', id: `binary_sensor.${mobile}_power_save` },
-    { key: 'ringMode', id: `sensor.${mobile}_ringer_mode` },
-    { key: 'location', id: `sensor.${mobile}_geocoded_location` },
-    { key: 'wifi', id: `sensor.${mobile}_wi_fi_connection` },
-    { key: 'lastSeen', id: `sensor.${mobile}_last_seen` },
-  ];
+  // 1. Hämta konfiguration för URL:er
+  const haBaseUrl = import.meta.env.VITE_HA_URL || '';
+  // assetBase kommer vara "/local/ha-dashboard/" (eller vad du satt i din config)
+  const assetBase = import.meta.env.BASE_URL;
 
-  // Bygg ett objekt med { value, unavailable } för varje entity
-  const entityStates = useMemo(() => {
-    const result: Record<string, { value?: string; unavailable: boolean }> = {};
-    for (const { key, id } of entityKeys) {
-      if (!id) {
-        result[key] = { value: undefined, unavailable: true };
-        continue;
-      }
-      result[key] = getEntityStateSafe(entities[id]);
+  const raw = useMemo(() => ({
+    person: entities[`person.${person.toLowerCase()}`],
+    battery: entities[`sensor.${mobile}_battery_level`],
+    batteryState: entities[`sensor.${mobile}_battery_state`],
+    location: entities[`sensor.${mobile}_geocoded_location`],
+    powerSave: entities[`binary_sensor.${mobile}_power_save`],
+    ringMode: entities[`sensor.${mobile}_ringer_mode`],
+    lastSeen: entities[`sensor.${mobile}_last_seen`],
+  }), [entities, person, mobile]);
+
+  // 2. Beräkna Avatar-bilden
+  const picture = useMemo(() => {
+    const entityPicture = raw.person?.attributes?.entity_picture;
+    const defaultAvatar = `${assetBase}images/avatar-default.svg`;
+
+    if (entityPicture) {
+      // Om det är en relativ HA-sökväg (/api/image...), lägg på HA-urlen
+      return entityPicture.startsWith('/') ? `${haBaseUrl}${entityPicture}` : entityPicture;
     }
-    return result;
-  }, [person, mobile, entities]);
 
+    return defaultAvatar;
+  }, [raw.person, haBaseUrl, assetBase]);
 
-  // Mobilrelaterade sensorer för unavailable-koll
-  const mobileUnavailable = ['battery', 'batteryState', 'powerSave', 'ringMode'].every(k => entityStates[k]?.unavailable);
-  const personUnavailable = entityStates['person']?.unavailable;
-  const unavailable = personUnavailable || mobileUnavailable;
+  // 3. Resten av logiken
+  const isHome = raw.person?.state?.toLowerCase() === 'home';
+  const isCharging = ['charging', 'plugged_in'].includes(raw.batteryState?.state?.toLowerCase() || '');
+  const batteryLevel = Number(raw.battery?.state) || 0;
+  const isPowerSave = raw.powerSave?.state === 'on';
+  const ringMode = (raw.ringMode?.state?.toLowerCase() || 'normal') as 'normal' | 'silent' | 'vibrate';
+  const unavailable = !raw.person || raw.person.state === 'unavailable';
 
-  // Bygg övriga fält
-  const isHome =
-    !personUnavailable && typeof entityStates['person'].value === 'string' && entityStates['person'].value.toLowerCase() === 'home';
-  const isCharging =
-    !entityStates['battery'].unavailable &&
-    typeof entityStates['batteryState'].value === 'string' &&
-    ['charging', 'plugged_in'].includes(entityStates['batteryState'].value.toLowerCase());
-  const isPowerSave = !entityStates['powerSave'].unavailable && entityStates['powerSave'].value === 'on';
-  const batteryLevel = !entityStates['battery'].unavailable ? Number(entityStates['battery'].value) || 0 : 0;
-  let ringMode: 'normal' | 'silent' | 'vibrate' = 'normal';
-  const ringRaw = typeof entityStates['ringMode'].value === 'string' ? entityStates['ringMode'].value.toLowerCase() : '';
-  if (ringRaw === 'silent') ringMode = 'silent';
-  else if (ringRaw === 'vibrate') ringMode = 'vibrate';
-
-  // Hämta person-entiteten
-  const personEntity = entities[`person.${person.toLowerCase()}`];
-  // Hämta baseUrl från miljövariabel
-  const baseUrl = import.meta.env.VITE_HA_URL;
-  // Hämta entity_picture och prefixa med baseUrl om det är en relativ path
-  let entityPicture = undefined;
-  if (personEntity && personEntity.attributes && typeof personEntity.attributes.entity_picture === 'string') {
-    entityPicture = personEntity.attributes.entity_picture;
-    if (entityPicture.startsWith('/')) {
-      entityPicture = baseUrl + entityPicture;
-    }
-  }
-
-  const profileData: HassProfileData = {
+  return {
     person,
-    personAvatar: entityPicture,
+    raw,
     isHome,
     batteryLevel,
     isCharging,
     isPowerSave,
     ringMode,
-    location: entityStates['location'].unavailable ? undefined : entityStates['location'].value,
-    wifiNetwork: entityStates['wifi'].unavailable ? undefined : entityStates['wifi'].value,
-    lastSeen: entityStates['lastSeen'].unavailable ? undefined : entityStates['lastSeen'].value,
-    unavailable,
-    batteryUnavailable: entityStates['battery'].unavailable,
-    personUnavailable,
-    mobileUnavailable,
+    picture, // Den färdiga bilden!
+    unavailable
   };
-
-  useEffect(() => {
-    if (debug) {
-      // eslint-disable-next-line no-console
-      console.log(`[Profile Debug] ${person} (${mobile}):`, profileData);
-    }
-  }, [debug, person, mobile, JSON.stringify(profileData)]);
-
-  return profileData;
 }
