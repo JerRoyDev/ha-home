@@ -4,7 +4,7 @@ import { getEntityStateSafe } from '../lib/ha-entity-utils';
 
 export interface HassProfileData {
   person: string;
-  personEntityPicture?: string; // URL till personens avatar från entityn
+  personAvatar?: string; // URL till personens avatar från entityn
   isHome: boolean;
   batteryLevel: number;
   isCharging: boolean;
@@ -61,8 +61,12 @@ export function useHassPersonProfile(person: string, mobile: string): HassProfil
   const unavailable = personUnavailable || mobileUnavailable;
 
   // Bygg övriga fält
-  const isHome = !personUnavailable && typeof entityStates['person'].value === 'string' && entityStates['person'].value.toLowerCase() === 'home';
-  const isCharging = !entityStates['battery'].unavailable && typeof entityStates['batteryState'].value === 'string' && ['charging', 'plugged_in'].includes(entityStates['batteryState'].value.toLowerCase());
+  const isHome =
+    !personUnavailable && typeof entityStates['person'].value === 'string' && entityStates['person'].value.toLowerCase() === 'home';
+  const isCharging =
+    !entityStates['battery'].unavailable &&
+    typeof entityStates['batteryState'].value === 'string' &&
+    ['charging', 'plugged_in'].includes(entityStates['batteryState'].value.toLowerCase());
   const isPowerSave = !entityStates['powerSave'].unavailable && entityStates['powerSave'].value === 'on';
   const batteryLevel = !entityStates['battery'].unavailable ? Number(entityStates['battery'].value) || 0 : 0;
   let ringMode: 'normal' | 'silent' | 'vibrate' = 'normal';
@@ -84,7 +88,7 @@ export function useHassPersonProfile(person: string, mobile: string): HassProfil
 
   return {
     person,
-    personEntityPicture: entityPicture,
+    personAvatar: entityPicture,
     isHome,
     batteryLevel,
     isCharging,

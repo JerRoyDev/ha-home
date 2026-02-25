@@ -5,13 +5,11 @@ import ProfileModal from './ProfileModal';
 import PhoneStatusBar from './PhoneStatusBar';
 import { useHassPersonProfile } from '../../hooks/useHassPersonProfile';
 
-
 interface ProfileCardProps {
   person: string;
-  avatarUrl?: string; // valfri
+  avatarUrl?: string; // ex:  avatarUrl={`${baseUrl}images/jerry-avatar.jpg`}
   mobile: string;
 }
-
 
 const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile }) => {
   // Hämta data från Home Assistant via customhook
@@ -19,7 +17,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile }) 
 
   // Bestäm vilken bild som ska visas: prop > entityPicture > default
   const defaultAvatar = 'public/images/avatar-default.svg';
-  const picture = avatarUrl || data.personEntityPicture || defaultAvatar;
+  const picture = avatarUrl || data.personAvatar || defaultAvatar;
 
   // Modal state
   const [open, setOpen] = useState(false);

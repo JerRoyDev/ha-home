@@ -1,10 +1,8 @@
 // this is an auto generated file, do not change this manually
 
-import { ServiceFunction, ServiceFunctionTypes } from "@hakit/core";
-declare module "@hakit/core" {
-  export interface CustomSupportedServices<
-    T extends ServiceFunctionTypes = "target",
-  > {
+import { ServiceFunction, ServiceFunctionTypes } from '@hakit/core';
+declare module '@hakit/core' {
+  export interface CustomSupportedServices<T extends ServiceFunctionTypes = 'target'> {
     persistentNotification: {
       // undefined
       create: ServiceFunction<
@@ -95,7 +93,7 @@ declare module "@hakit/core" {
           //  @example Something went wrong
           message: string;
           //
-          level?: "debug" | "info" | "warning" | "error" | "critical";
+          level?: 'debug' | 'info' | 'warning' | 'error' | 'critical';
           //  @example mycomponent.myplatform
           logger?: string;
         }
@@ -108,7 +106,7 @@ declare module "@hakit/core" {
         T,
         {
           //
-          level?: "debug" | "info" | "warning" | "error" | "fatal" | "critical";
+          level?: 'debug' | 'info' | 'warning' | 'error' | 'fatal' | 'critical';
         }
       >;
       // undefined
@@ -174,16 +172,9 @@ declare module "@hakit/core" {
           //  @example sensor.energy_consumption,sensor.temperature @constraints  statistic: multiple: true
           statistic_ids: unknown;
           //  @example hour
-          period: "5minute" | "hour" | "day" | "week" | "month";
+          period: '5minute' | 'hour' | 'day' | 'week' | 'month';
           //  @example mean,sum
-          types:
-            | "change"
-            | "last_reset"
-            | "max"
-            | "mean"
-            | "min"
-            | "state"
-            | "sum";
+          types: 'change' | 'last_reset' | 'max' | 'mean' | 'min' | 'state' | 'sum';
           //  @example [object Object] @constraints  object: multiple: false
           units?: object;
         }
@@ -497,7 +488,7 @@ declare module "@hakit/core" {
           //
           media_player: string;
           //
-          format?: "hls";
+          format?: 'hls';
         }
       >;
       // undefined
@@ -844,7 +835,7 @@ declare module "@hakit/core" {
           //  @example www/my_file.json
           file_name?: string;
           //  @example JSON
-          file_encoding?: "JSON" | "YAML";
+          file_encoding?: 'JSON' | 'YAML';
         }
       >;
     };
@@ -956,11 +947,11 @@ declare module "@hakit/core" {
           //
           prompt: string;
           //  @example 1024x1024
-          size?: "1024x1024" | "1024x1792" | "1792x1024";
+          size?: '1024x1024' | '1024x1792' | '1792x1024';
           //  @example standard
-          quality?: "standard" | "hd";
+          quality?: 'standard' | 'hd';
           //  @example vivid
-          style?: "vivid" | "natural";
+          style?: 'vivid' | 'natural';
         }
       >;
     };
@@ -1024,154 +1015,154 @@ declare module "@hakit/core" {
           rgbww_color?: [number, number, number, number, number];
           //
           color_name?:
-            | "homeassistant"
-            | "aliceblue"
-            | "antiquewhite"
-            | "aqua"
-            | "aquamarine"
-            | "azure"
-            | "beige"
-            | "bisque"
-            | "blanchedalmond"
-            | "blue"
-            | "blueviolet"
-            | "brown"
-            | "burlywood"
-            | "cadetblue"
-            | "chartreuse"
-            | "chocolate"
-            | "coral"
-            | "cornflowerblue"
-            | "cornsilk"
-            | "crimson"
-            | "cyan"
-            | "darkblue"
-            | "darkcyan"
-            | "darkgoldenrod"
-            | "darkgray"
-            | "darkgreen"
-            | "darkgrey"
-            | "darkkhaki"
-            | "darkmagenta"
-            | "darkolivegreen"
-            | "darkorange"
-            | "darkorchid"
-            | "darkred"
-            | "darksalmon"
-            | "darkseagreen"
-            | "darkslateblue"
-            | "darkslategray"
-            | "darkslategrey"
-            | "darkturquoise"
-            | "darkviolet"
-            | "deeppink"
-            | "deepskyblue"
-            | "dimgray"
-            | "dimgrey"
-            | "dodgerblue"
-            | "firebrick"
-            | "floralwhite"
-            | "forestgreen"
-            | "fuchsia"
-            | "gainsboro"
-            | "ghostwhite"
-            | "gold"
-            | "goldenrod"
-            | "gray"
-            | "green"
-            | "greenyellow"
-            | "grey"
-            | "honeydew"
-            | "hotpink"
-            | "indianred"
-            | "indigo"
-            | "ivory"
-            | "khaki"
-            | "lavender"
-            | "lavenderblush"
-            | "lawngreen"
-            | "lemonchiffon"
-            | "lightblue"
-            | "lightcoral"
-            | "lightcyan"
-            | "lightgoldenrodyellow"
-            | "lightgray"
-            | "lightgreen"
-            | "lightgrey"
-            | "lightpink"
-            | "lightsalmon"
-            | "lightseagreen"
-            | "lightskyblue"
-            | "lightslategray"
-            | "lightslategrey"
-            | "lightsteelblue"
-            | "lightyellow"
-            | "lime"
-            | "limegreen"
-            | "linen"
-            | "magenta"
-            | "maroon"
-            | "mediumaquamarine"
-            | "mediumblue"
-            | "mediumorchid"
-            | "mediumpurple"
-            | "mediumseagreen"
-            | "mediumslateblue"
-            | "mediumspringgreen"
-            | "mediumturquoise"
-            | "mediumvioletred"
-            | "midnightblue"
-            | "mintcream"
-            | "mistyrose"
-            | "moccasin"
-            | "navajowhite"
-            | "navy"
-            | "navyblue"
-            | "oldlace"
-            | "olive"
-            | "olivedrab"
-            | "orange"
-            | "orangered"
-            | "orchid"
-            | "palegoldenrod"
-            | "palegreen"
-            | "paleturquoise"
-            | "palevioletred"
-            | "papayawhip"
-            | "peachpuff"
-            | "peru"
-            | "pink"
-            | "plum"
-            | "powderblue"
-            | "purple"
-            | "red"
-            | "rosybrown"
-            | "royalblue"
-            | "saddlebrown"
-            | "salmon"
-            | "sandybrown"
-            | "seagreen"
-            | "seashell"
-            | "sienna"
-            | "silver"
-            | "skyblue"
-            | "slateblue"
-            | "slategray"
-            | "slategrey"
-            | "snow"
-            | "springgreen"
-            | "steelblue"
-            | "tan"
-            | "teal"
-            | "thistle"
-            | "tomato"
-            | "turquoise"
-            | "violet"
-            | "wheat"
-            | "white"
-            | "whitesmoke"
-            | "yellow"
-            | "yellowgreen";
+            | 'homeassistant'
+            | 'aliceblue'
+            | 'antiquewhite'
+            | 'aqua'
+            | 'aquamarine'
+            | 'azure'
+            | 'beige'
+            | 'bisque'
+            | 'blanchedalmond'
+            | 'blue'
+            | 'blueviolet'
+            | 'brown'
+            | 'burlywood'
+            | 'cadetblue'
+            | 'chartreuse'
+            | 'chocolate'
+            | 'coral'
+            | 'cornflowerblue'
+            | 'cornsilk'
+            | 'crimson'
+            | 'cyan'
+            | 'darkblue'
+            | 'darkcyan'
+            | 'darkgoldenrod'
+            | 'darkgray'
+            | 'darkgreen'
+            | 'darkgrey'
+            | 'darkkhaki'
+            | 'darkmagenta'
+            | 'darkolivegreen'
+            | 'darkorange'
+            | 'darkorchid'
+            | 'darkred'
+            | 'darksalmon'
+            | 'darkseagreen'
+            | 'darkslateblue'
+            | 'darkslategray'
+            | 'darkslategrey'
+            | 'darkturquoise'
+            | 'darkviolet'
+            | 'deeppink'
+            | 'deepskyblue'
+            | 'dimgray'
+            | 'dimgrey'
+            | 'dodgerblue'
+            | 'firebrick'
+            | 'floralwhite'
+            | 'forestgreen'
+            | 'fuchsia'
+            | 'gainsboro'
+            | 'ghostwhite'
+            | 'gold'
+            | 'goldenrod'
+            | 'gray'
+            | 'green'
+            | 'greenyellow'
+            | 'grey'
+            | 'honeydew'
+            | 'hotpink'
+            | 'indianred'
+            | 'indigo'
+            | 'ivory'
+            | 'khaki'
+            | 'lavender'
+            | 'lavenderblush'
+            | 'lawngreen'
+            | 'lemonchiffon'
+            | 'lightblue'
+            | 'lightcoral'
+            | 'lightcyan'
+            | 'lightgoldenrodyellow'
+            | 'lightgray'
+            | 'lightgreen'
+            | 'lightgrey'
+            | 'lightpink'
+            | 'lightsalmon'
+            | 'lightseagreen'
+            | 'lightskyblue'
+            | 'lightslategray'
+            | 'lightslategrey'
+            | 'lightsteelblue'
+            | 'lightyellow'
+            | 'lime'
+            | 'limegreen'
+            | 'linen'
+            | 'magenta'
+            | 'maroon'
+            | 'mediumaquamarine'
+            | 'mediumblue'
+            | 'mediumorchid'
+            | 'mediumpurple'
+            | 'mediumseagreen'
+            | 'mediumslateblue'
+            | 'mediumspringgreen'
+            | 'mediumturquoise'
+            | 'mediumvioletred'
+            | 'midnightblue'
+            | 'mintcream'
+            | 'mistyrose'
+            | 'moccasin'
+            | 'navajowhite'
+            | 'navy'
+            | 'navyblue'
+            | 'oldlace'
+            | 'olive'
+            | 'olivedrab'
+            | 'orange'
+            | 'orangered'
+            | 'orchid'
+            | 'palegoldenrod'
+            | 'palegreen'
+            | 'paleturquoise'
+            | 'palevioletred'
+            | 'papayawhip'
+            | 'peachpuff'
+            | 'peru'
+            | 'pink'
+            | 'plum'
+            | 'powderblue'
+            | 'purple'
+            | 'red'
+            | 'rosybrown'
+            | 'royalblue'
+            | 'saddlebrown'
+            | 'salmon'
+            | 'sandybrown'
+            | 'seagreen'
+            | 'seashell'
+            | 'sienna'
+            | 'silver'
+            | 'skyblue'
+            | 'slateblue'
+            | 'slategray'
+            | 'slategrey'
+            | 'snow'
+            | 'springgreen'
+            | 'steelblue'
+            | 'tan'
+            | 'teal'
+            | 'thistle'
+            | 'tomato'
+            | 'turquoise'
+            | 'violet'
+            | 'wheat'
+            | 'white'
+            | 'whitesmoke'
+            | 'yellow'
+            | 'yellowgreen';
           //  @example [300, 70] @constraints  object: multiple: false
           hs_color?: [number, number];
           //  @example [0.52, 0.43] @constraints  object: multiple: false
@@ -1187,7 +1178,7 @@ declare module "@hakit/core" {
           //  @example relax
           profile?: string;
           //
-          flash?: "long" | "short";
+          flash?: 'long' | 'short';
         }
       >;
       // undefined
@@ -1198,7 +1189,7 @@ declare module "@hakit/core" {
           //  @constraints  number: min: 0, max: 300, unit_of_measurement: seconds, step: 1, mode: slider
           transition?: number;
           //
-          flash?: "long" | "short";
+          flash?: 'long' | 'short';
         }
       >;
       // undefined
@@ -1222,154 +1213,154 @@ declare module "@hakit/core" {
           rgbww_color?: [number, number, number, number, number];
           //
           color_name?:
-            | "homeassistant"
-            | "aliceblue"
-            | "antiquewhite"
-            | "aqua"
-            | "aquamarine"
-            | "azure"
-            | "beige"
-            | "bisque"
-            | "blanchedalmond"
-            | "blue"
-            | "blueviolet"
-            | "brown"
-            | "burlywood"
-            | "cadetblue"
-            | "chartreuse"
-            | "chocolate"
-            | "coral"
-            | "cornflowerblue"
-            | "cornsilk"
-            | "crimson"
-            | "cyan"
-            | "darkblue"
-            | "darkcyan"
-            | "darkgoldenrod"
-            | "darkgray"
-            | "darkgreen"
-            | "darkgrey"
-            | "darkkhaki"
-            | "darkmagenta"
-            | "darkolivegreen"
-            | "darkorange"
-            | "darkorchid"
-            | "darkred"
-            | "darksalmon"
-            | "darkseagreen"
-            | "darkslateblue"
-            | "darkslategray"
-            | "darkslategrey"
-            | "darkturquoise"
-            | "darkviolet"
-            | "deeppink"
-            | "deepskyblue"
-            | "dimgray"
-            | "dimgrey"
-            | "dodgerblue"
-            | "firebrick"
-            | "floralwhite"
-            | "forestgreen"
-            | "fuchsia"
-            | "gainsboro"
-            | "ghostwhite"
-            | "gold"
-            | "goldenrod"
-            | "gray"
-            | "green"
-            | "greenyellow"
-            | "grey"
-            | "honeydew"
-            | "hotpink"
-            | "indianred"
-            | "indigo"
-            | "ivory"
-            | "khaki"
-            | "lavender"
-            | "lavenderblush"
-            | "lawngreen"
-            | "lemonchiffon"
-            | "lightblue"
-            | "lightcoral"
-            | "lightcyan"
-            | "lightgoldenrodyellow"
-            | "lightgray"
-            | "lightgreen"
-            | "lightgrey"
-            | "lightpink"
-            | "lightsalmon"
-            | "lightseagreen"
-            | "lightskyblue"
-            | "lightslategray"
-            | "lightslategrey"
-            | "lightsteelblue"
-            | "lightyellow"
-            | "lime"
-            | "limegreen"
-            | "linen"
-            | "magenta"
-            | "maroon"
-            | "mediumaquamarine"
-            | "mediumblue"
-            | "mediumorchid"
-            | "mediumpurple"
-            | "mediumseagreen"
-            | "mediumslateblue"
-            | "mediumspringgreen"
-            | "mediumturquoise"
-            | "mediumvioletred"
-            | "midnightblue"
-            | "mintcream"
-            | "mistyrose"
-            | "moccasin"
-            | "navajowhite"
-            | "navy"
-            | "navyblue"
-            | "oldlace"
-            | "olive"
-            | "olivedrab"
-            | "orange"
-            | "orangered"
-            | "orchid"
-            | "palegoldenrod"
-            | "palegreen"
-            | "paleturquoise"
-            | "palevioletred"
-            | "papayawhip"
-            | "peachpuff"
-            | "peru"
-            | "pink"
-            | "plum"
-            | "powderblue"
-            | "purple"
-            | "red"
-            | "rosybrown"
-            | "royalblue"
-            | "saddlebrown"
-            | "salmon"
-            | "sandybrown"
-            | "seagreen"
-            | "seashell"
-            | "sienna"
-            | "silver"
-            | "skyblue"
-            | "slateblue"
-            | "slategray"
-            | "slategrey"
-            | "snow"
-            | "springgreen"
-            | "steelblue"
-            | "tan"
-            | "teal"
-            | "thistle"
-            | "tomato"
-            | "turquoise"
-            | "violet"
-            | "wheat"
-            | "white"
-            | "whitesmoke"
-            | "yellow"
-            | "yellowgreen";
+            | 'homeassistant'
+            | 'aliceblue'
+            | 'antiquewhite'
+            | 'aqua'
+            | 'aquamarine'
+            | 'azure'
+            | 'beige'
+            | 'bisque'
+            | 'blanchedalmond'
+            | 'blue'
+            | 'blueviolet'
+            | 'brown'
+            | 'burlywood'
+            | 'cadetblue'
+            | 'chartreuse'
+            | 'chocolate'
+            | 'coral'
+            | 'cornflowerblue'
+            | 'cornsilk'
+            | 'crimson'
+            | 'cyan'
+            | 'darkblue'
+            | 'darkcyan'
+            | 'darkgoldenrod'
+            | 'darkgray'
+            | 'darkgreen'
+            | 'darkgrey'
+            | 'darkkhaki'
+            | 'darkmagenta'
+            | 'darkolivegreen'
+            | 'darkorange'
+            | 'darkorchid'
+            | 'darkred'
+            | 'darksalmon'
+            | 'darkseagreen'
+            | 'darkslateblue'
+            | 'darkslategray'
+            | 'darkslategrey'
+            | 'darkturquoise'
+            | 'darkviolet'
+            | 'deeppink'
+            | 'deepskyblue'
+            | 'dimgray'
+            | 'dimgrey'
+            | 'dodgerblue'
+            | 'firebrick'
+            | 'floralwhite'
+            | 'forestgreen'
+            | 'fuchsia'
+            | 'gainsboro'
+            | 'ghostwhite'
+            | 'gold'
+            | 'goldenrod'
+            | 'gray'
+            | 'green'
+            | 'greenyellow'
+            | 'grey'
+            | 'honeydew'
+            | 'hotpink'
+            | 'indianred'
+            | 'indigo'
+            | 'ivory'
+            | 'khaki'
+            | 'lavender'
+            | 'lavenderblush'
+            | 'lawngreen'
+            | 'lemonchiffon'
+            | 'lightblue'
+            | 'lightcoral'
+            | 'lightcyan'
+            | 'lightgoldenrodyellow'
+            | 'lightgray'
+            | 'lightgreen'
+            | 'lightgrey'
+            | 'lightpink'
+            | 'lightsalmon'
+            | 'lightseagreen'
+            | 'lightskyblue'
+            | 'lightslategray'
+            | 'lightslategrey'
+            | 'lightsteelblue'
+            | 'lightyellow'
+            | 'lime'
+            | 'limegreen'
+            | 'linen'
+            | 'magenta'
+            | 'maroon'
+            | 'mediumaquamarine'
+            | 'mediumblue'
+            | 'mediumorchid'
+            | 'mediumpurple'
+            | 'mediumseagreen'
+            | 'mediumslateblue'
+            | 'mediumspringgreen'
+            | 'mediumturquoise'
+            | 'mediumvioletred'
+            | 'midnightblue'
+            | 'mintcream'
+            | 'mistyrose'
+            | 'moccasin'
+            | 'navajowhite'
+            | 'navy'
+            | 'navyblue'
+            | 'oldlace'
+            | 'olive'
+            | 'olivedrab'
+            | 'orange'
+            | 'orangered'
+            | 'orchid'
+            | 'palegoldenrod'
+            | 'palegreen'
+            | 'paleturquoise'
+            | 'palevioletred'
+            | 'papayawhip'
+            | 'peachpuff'
+            | 'peru'
+            | 'pink'
+            | 'plum'
+            | 'powderblue'
+            | 'purple'
+            | 'red'
+            | 'rosybrown'
+            | 'royalblue'
+            | 'saddlebrown'
+            | 'salmon'
+            | 'sandybrown'
+            | 'seagreen'
+            | 'seashell'
+            | 'sienna'
+            | 'silver'
+            | 'skyblue'
+            | 'slateblue'
+            | 'slategray'
+            | 'slategrey'
+            | 'snow'
+            | 'springgreen'
+            | 'steelblue'
+            | 'tan'
+            | 'teal'
+            | 'thistle'
+            | 'tomato'
+            | 'turquoise'
+            | 'violet'
+            | 'wheat'
+            | 'white'
+            | 'whitesmoke'
+            | 'yellow'
+            | 'yellowgreen';
           //  @example [300, 70] @constraints  object: multiple: false
           hs_color?: [number, number];
           //  @example [0.52, 0.43] @constraints  object: multiple: false
@@ -1383,7 +1374,7 @@ declare module "@hakit/core" {
           //  @example relax
           profile?: string;
           //
-          flash?: "long" | "short";
+          flash?: 'long' | 'short';
         }
       >;
     };
@@ -1474,7 +1465,7 @@ declare module "@hakit/core" {
           //  @example {'media_content_id': 'https://home-assistant.io/images/cast/splash.png', 'media_content_type': 'music'} @constraints  media: multiple: false
           media: unknown;
           //
-          enqueue?: "play" | "next" | "add" | "replace";
+          enqueue?: 'play' | 'next' | 'add' | 'replace';
           //  @example true @constraints  boolean:
           announce?: boolean;
         }
@@ -1522,7 +1513,7 @@ declare module "@hakit/core" {
         T,
         {
           //
-          repeat: "off" | "all" | "one";
+          repeat: 'off' | 'all' | 'one';
         }
       >;
     };
@@ -1569,40 +1560,25 @@ declare module "@hakit/core" {
           // Popup content (Text or lovelace card configuration) @constraints  object: multiple: false
           content: object;
           // Initial style to apply to the popup
-          initial_style?: "normal" | "classic" | "wide" | "fullscreen";
+          initial_style?: 'normal' | 'classic' | 'wide' | 'fullscreen';
           // Sequence of styles to cycle through when user taps the title or with browser_mod.set_popup_style service
-          style_sequence?:
-            | "initial"
-            | "normal"
-            | "classic"
-            | "wide"
-            | "fullscreen";
+          style_sequence?: 'initial' | 'normal' | 'classic' | 'wide' | 'fullscreen';
           // Popup styles to apply. Use 'all' to always apply the style. You can add to standard styles or create your own @constraints  object: label_field: style, description_field: include_styles, multiple: true, fields: [object Object]
           popup_styles?: object;
           // Text of the right button
           right_button?: string;
           // Variant of the right button
-          right_button_variant?:
-            | "brand"
-            | "neutral"
-            | "danger"
-            | "warning"
-            | "success";
+          right_button_variant?: 'brand' | 'neutral' | 'danger' | 'warning' | 'success';
           // Appearance of the right button
-          right_button_appearance?: "accent" | "filled" | "outlined" | "plain";
+          right_button_appearance?: 'accent' | 'filled' | 'outlined' | 'plain';
           // Action to perform when the right button is pressed @constraints  object: multiple: false
           right_button_action?: object;
           // Text of the left button
           left_button?: string;
           // Variant of the left button
-          left_button_variant?:
-            | "brand"
-            | "neutral"
-            | "danger"
-            | "warning"
-            | "success";
+          left_button_variant?: 'brand' | 'neutral' | 'danger' | 'warning' | 'success';
           // Appearance of the left button
-          left_button_appearance?: "accent" | "filled" | "outlined" | "plain";
+          left_button_appearance?: 'accent' | 'filled' | 'outlined' | 'plain';
           // Action to perform when left button is pressed @constraints  object: multiple: false
           left_button_action?: object;
           // Whether the popup can be closed by the user without action @constraints  boolean:
@@ -1633,7 +1609,7 @@ declare module "@hakit/core" {
           //
           entity?: string;
           // More-info view to show
-          view?: "info" | "history" | "settings" | "related";
+          view?: 'info' | 'history' | 'settings' | 'related';
           //  @constraints  boolean:
           large?: boolean;
           //  @constraints  boolean:
@@ -1671,9 +1647,9 @@ declare module "@hakit/core" {
           // Tag for popup to set style for when using multiple popups
           tag?: string;
           // Style to apply to the popup
-          style?: "normal" | "classic" | "wide" | "fullscreen";
+          style?: 'normal' | 'classic' | 'wide' | 'fullscreen';
           // Direction to cycle through style sequence
-          direction?: "forward" | "back";
+          direction?: 'forward' | 'back';
         }
       >;
       // Display a short notification
@@ -1746,7 +1722,7 @@ declare module "@hakit/core" {
           // Name of theme or 'auto'
           theme?: string;
           // Dark/light mode
-          dark?: "auto" | "light" | "dark";
+          dark?: 'auto' | 'light' | 'dark';
           // Primary theme color @constraints  color_rgb:
           primaryColor?: unknown;
           // Accent theme color @constraints  color_rgb:
@@ -1834,7 +1810,7 @@ declare module "@hakit/core" {
           //  @example Something else
           rename?: string;
           //  @example needs_action
-          status?: "needs_action" | "completed";
+          status?: 'needs_action' | 'completed';
           //  @example 2023-11-17 @constraints  date:
           due_date?: string;
           //  @example 2023-11-17 13:30:00 @constraints  datetime:
@@ -1858,7 +1834,7 @@ declare module "@hakit/core" {
         T,
         {
           //  @example needs_action
-          status?: "needs_action" | "completed";
+          status?: 'needs_action' | 'completed';
         }
       >;
       // undefined
@@ -2029,7 +2005,7 @@ declare module "@hakit/core" {
         T,
         {
           //
-          type: "daily" | "hourly" | "twice_daily";
+          type: 'daily' | 'hourly' | 'twice_daily';
         }
       >;
     };
@@ -2106,14 +2082,7 @@ declare module "@hakit/core" {
           //  @constraints  number: min: 0, max: 250, step: 0.1, mode: box
           target_temp_low?: number;
           //
-          hvac_mode?:
-            | "off"
-            | "auto"
-            | "cool"
-            | "dry"
-            | "fan_only"
-            | "heat_cool"
-            | "heat";
+          hvac_mode?: 'off' | 'auto' | 'cool' | 'dry' | 'fan_only' | 'heat_cool' | 'heat';
         }
       >;
       // undefined
@@ -2322,306 +2291,306 @@ declare module "@hakit/core" {
   }
   export interface CustomEntityNameContainer {
     names:
-      | "update.home_assistant_supervisor_update"
-      | "update.home_assistant_core_update"
-      | "update.studio_code_server_uppdatering"
-      | "update.samba_share_uppdatering"
-      | "update.advanced_ssh_web_terminal_uppdatering"
-      | "update.whisper_uppdatering"
-      | "update.piper_uppdatering"
-      | "update.openwakeword_uppdatering"
-      | "update.duck_dns_uppdatering"
-      | "update.home_assistant_mcp_server_dev_uppdatering"
-      | "update.home_assistant_operating_system_update"
-      | "conversation.home_assistant"
-      | "event.backup_automatic_backup"
-      | "sensor.backup_backup_manager_state"
-      | "sensor.backup_next_scheduled_automatic_backup"
-      | "sensor.backup_last_successful_automatic_backup"
-      | "sensor.backup_last_attempted_automatic_backup"
-      | "zone.skolan"
-      | "zone.home"
-      | "person.jerry"
-      | "person.tablet"
-      | "person.alice"
-      | "person.linnea"
-      | "sun.sun"
-      | "sensor.sun_next_dawn"
-      | "sensor.sun_next_dusk"
-      | "sensor.sun_next_midnight"
-      | "sensor.sun_next_noon"
-      | "sensor.sun_next_rising"
-      | "sensor.sun_next_setting"
-      | "todo.inkopslista"
-      | "binary_sensor.jerrys_mobil_power_save"
-      | "device_tracker.oneplus_12r"
-      | "sensor.jerrys_mobil_detected_activity"
-      | "sensor.jerrys_mobil_ringer_mode"
-      | "sensor.jerrys_mobil_battery_level"
-      | "sensor.jerrys_mobil_battery_state"
-      | "sensor.jerrys_mobil_geocoded_location"
-      | "sensor.jerrys_mobil_wi_fi_connection"
-      | "device_tracker.sm_t550"
-      | "sensor.sm_t550_battery_level"
-      | "sensor.sm_t550_battery_state"
-      | "sensor.sm_t550_charger_type"
-      | "binary_sensor.alices_mobil_is_charging"
-      | "binary_sensor.alices_mobil_interactive"
-      | "binary_sensor.alices_mobil_power_save"
-      | "device_tracker.alices_mobil"
-      | "sensor.alices_mobil_detected_activity"
-      | "sensor.alices_mobil_ringer_mode"
-      | "sensor.alices_mobil_audio_mode"
-      | "sensor.alices_mobil_battery_level"
-      | "sensor.alices_mobil_battery_state"
-      | "sensor.alices_mobil_charger_type"
-      | "sensor.alices_mobil_battery_health"
-      | "sensor.alices_mobil_battery_temperature"
-      | "sensor.alices_mobil_battery_power"
-      | "sensor.alices_mobil_remaining_charge_time"
-      | "sensor.alices_mobil_geocoded_location"
-      | "sensor.alices_mobil_wi_fi_connection"
-      | "sensor.alices_mobil_network_type"
-      | "sensor.alices_mobil_steps_sensor"
-      | "binary_sensor.vog_l29_power_save"
-      | "device_tracker.vog_l29"
-      | "sensor.vog_l29_detected_activity"
-      | "sensor.vog_l29_audio_mode"
-      | "sensor.vog_l29_battery_level"
-      | "sensor.vog_l29_battery_state"
-      | "sensor.vog_l29_geocoded_location"
-      | "sensor.vog_l29_wi_fi_connection"
-      | "tts.google_translate_en_com"
-      | "media_player.kokets_hogtalare"
-      | "ai_task.openai_ai_task"
-      | "conversation.openai_conversation"
-      | "wake_word.openwakeword"
-      | "tts.piper"
-      | "stt.faster_whisper"
-      | "weather.forecast_hem"
-      | "update.layout_card_update"
-      | "update.hacs_update"
-      | "update.tapo_cameras_control_update"
-      | "update.meteogram_card_update"
-      | "update.card_mod_update"
-      | "update.browser_mod_update"
-      | "update.button_card_update"
-      | "update.calendar_card_pro_update"
-      | "update.plejd_update"
-      | "binary_sensor.rt_ac2900_5888_asus_router_wan_status"
-      | "sensor.rt_ac2900_5888_asus_router_extern_ip"
-      | "sensor.rt_ac2900_5888_asus_router_nedladdningshastighet"
-      | "sensor.rt_ac2900_5888_asus_router_uppladdningshastighet"
-      | "todo.dev"
-      | "media_player.alice_s_hogtalare"
-      | "calendar.jerry_olsson_kalender_canvas"
-      | "calendar.kraver_uppgradering"
-      | "calendar.ojebyn_weather"
-      | "calendar.helgdagar_i_sverige"
-      | "calendar.family"
-      | "calendar.myold"
-      | "calendar.alice"
-      | "calendar.linnea"
-      | "calendar.oliver"
-      | "calendar.ohlson_mailen_gmail_com"
-      | "calendar.fodelsedagar"
-      | "calendar.https_home_tempusinfo_se_tempushome_icalservlet_id_aa535f12ca104f209bfa7ae5b2577f65_s_19"
-      | "calendar.fodelsedagar_2"
-      | "light.spottar_matsalen"
-      | "switch.may_be_gateway"
-      | "binary_sensor.is_gateway"
-      | "binary_sensor.is_connectable"
-      | "sensor.last_seen"
-      | "sensor.rssi"
-      | "light.spottar_vardagsrum"
-      | "switch.may_be_gateway_2"
-      | "binary_sensor.is_gateway_2"
-      | "binary_sensor.is_connectable_2"
-      | "sensor.last_seen_2"
-      | "sensor.rssi_2"
-      | "light.spottar_bibliotek"
-      | "switch.may_be_gateway_3"
-      | "binary_sensor.is_gateway_3"
-      | "binary_sensor.is_connectable_3"
-      | "sensor.last_seen_3"
-      | "sensor.rssi_3"
-      | "light.soffbord"
-      | "switch.may_be_gateway_4"
-      | "binary_sensor.is_gateway_4"
-      | "binary_sensor.is_connectable_4"
-      | "sensor.last_seen_4"
-      | "sensor.rssi_4"
-      | "light.barbord"
-      | "switch.may_be_gateway_5"
-      | "binary_sensor.is_gateway_5"
-      | "binary_sensor.is_connectable_5"
-      | "sensor.last_seen_5"
-      | "sensor.rssi_5"
-      | "light.bibliotek_taklampa"
-      | "switch.may_be_gateway_6"
-      | "binary_sensor.is_gateway_6"
-      | "binary_sensor.is_connectable_6"
-      | "sensor.last_seen_6"
-      | "sensor.rssi_6"
-      | "light.kokslampa"
-      | "switch.may_be_gateway_7"
-      | "binary_sensor.is_gateway_7"
-      | "binary_sensor.is_connectable_7"
-      | "sensor.last_seen_7"
-      | "sensor.rssi_7"
-      | "event.spottar_matsalen_1_pressed"
-      | "event.spottar_matsalen_2_pressed"
-      | "event.spottar_matsalen_3_pressed"
-      | "event.spottar_vardagsrum_1_pressed"
-      | "event.spottar_vardagsrum_2_pressed"
-      | "event.spottar_vardagsrum_3_pressed"
-      | "event.spottar_bibliotek_1_pressed"
-      | "event.spottar_bibliotek_2_pressed"
-      | "event.spottar_bibliotek_3_pressed"
-      | "event.barbord_1_pressed"
-      | "event.barbord_2_pressed"
-      | "event.barbord_3_pressed"
-      | "event.soffbord_1_pressed"
-      | "event.soffbord_2_pressed"
-      | "event.soffbord_3_pressed"
-      | "event.kokslampa_1_pressed"
-      | "event.kokslampa_2_pressed"
-      | "event.kokslampa_3_pressed"
-      | "event.bibliotek_taklampa_1_pressed"
-      | "event.bibliotek_taklampa_2_pressed"
-      | "event.bibliotek_taklampa_3_pressed"
-      | "scene.allt_av"
-      | "event.allt_av_activated"
-      | "event.god_morgon_vardag_activated"
-      | "scene.kvallsmys"
-      | "event.kvallsmys_activated"
-      | "scene.allt_pa"
-      | "event.allt_pa_activated"
-      | "scene.morgon"
-      | "event.morgon_activated"
-      | "event.sangdax_activated"
-      | "scene.dag"
-      | "event.dag_activated"
-      | "media_player.google_tv"
-      | "camera.utomhus_hd_stream"
-      | "camera.utomhus_sd_stream"
-      | "button.utomhus_reboot"
-      | "button.utomhus_format_sd_card"
-      | "button.utomhus_manual_alarm_start"
-      | "button.utomhus_manual_alarm_stop"
-      | "button.utomhus_sync_time"
-      | "button.utomhus_calibrate"
-      | "button.utomhus_move_up"
-      | "button.utomhus_move_down"
-      | "button.utomhus_move_right"
-      | "button.utomhus_move_left"
-      | "number.utomhus_movement_angle"
-      | "number.utomhus_motion_detection_digital_sensitivity"
-      | "number.utomhus_microphone_volume"
-      | "number.utomhus_speaker_volume"
-      | "number.utomhus_siren_volume"
-      | "number.utomhus_siren_duration"
-      | "number.utomhus_spotlight_intensity"
-      | "select.utomhus_timezone"
-      | "select.utomhus_night_vision_switching"
-      | "select.utomhus_night_vision"
-      | "select.utomhus_light_frequency"
-      | "select.utomhus_automatic_alarm"
-      | "select.utomhus_siren_type"
-      | "select.utomhus_motion_detection"
-      | "select.utomhus_person_detection"
-      | "select.utomhus_vehicle_detection"
-      | "select.utomhus_pet_detection"
-      | "select.utomhus_tamper_detection"
-      | "select.utomhus_move_to_preset"
-      | "select.utomhus_patrol_mode"
-      | "select.utomhus_spotlight_on_off_for"
-      | "siren.utomhus_siren"
-      | "update.utomhus_update"
-      | "binary_sensor.utomhus_noise"
-      | "sensor.utomhus_network_ssid"
-      | "sensor.utomhus_link_type"
-      | "sensor.utomhus_rssi"
-      | "sensor.utomhus_recordings_synchronization"
-      | "switch.utomhus_privacy"
-      | "switch.utomhus_trigger_alarm_on_people_detection"
-      | "switch.utomhus_trigger_alarm_on_motion_detection"
-      | "switch.utomhus_trigger_alarm_on_tamper_detection"
-      | "switch.utomhus_trigger_alarm_on_linecrossing_detection"
-      | "switch.utomhus_trigger_alarm_on_vehicle_detection"
-      | "switch.utomhus_trigger_alarm_on_pet_detection"
-      | "switch.utomhus_media_sync"
-      | "switch.utomhus_lens_distortion_correction"
-      | "switch.utomhus_indicator_led"
-      | "switch.utomhus_record_audio"
-      | "switch.utomhus_diagnose_mode"
-      | "switch.utomhus_smart_track_people"
-      | "switch.utomhus_smart_track_pet"
-      | "switch.utomhus_smart_track_vehicle"
-      | "switch.utomhus_smart_track_baby"
-      | "switch.utomhus_privacy_zones"
-      | "switch.utomhus_flip"
-      | "switch.utomhus_auto_track"
-      | "switch.utomhus_notifications"
-      | "switch.utomhus_rich_notifications"
-      | "switch.utomhus_automatically_upgrade_firmware"
-      | "switch.utomhus_record_to_sd_card"
-      | "switch.utomhus_microphone_mute"
-      | "switch.utomhus_microphone_noise_cancellation"
-      | "light.utomhus_floodlight_timed"
-      | "binary_sensor.utomhus_person_detection"
-      | "binary_sensor.utomhus_pet_detection"
-      | "binary_sensor.utomhus_person_detection_2"
-      | "binary_sensor.utomhus_pet_detection_2"
-      | "binary_sensor.samsung_galaxy_tab_a_kiosklage"
-      | "binary_sensor.samsung_galaxy_tab_a_inkopplad"
-      | "binary_sensor.samsung_galaxy_tab_a_enhetsadministrator"
-      | "button.samsung_galaxy_tab_a_starta_om_webblasaren"
-      | "button.samsung_galaxy_tab_a_starta_om_enheten"
-      | "button.samsung_galaxy_tab_a_ta_fram_i_forgrunden"
-      | "button.samsung_galaxy_tab_a_skicka_till_bakgrunden"
-      | "button.samsung_galaxy_tab_a_las_in_start_url"
-      | "button.samsung_galaxy_tab_a_rensa_webblasarens_cache"
-      | "camera.samsung_galaxy_tab_a"
-      | "image.samsung_galaxy_tab_a_skarmdump"
-      | "media_player.samsung_galaxy_tab_a"
-      | "notify.samsung_galaxy_tab_a_overlagrad_avisering"
-      | "notify.samsung_galaxy_tab_a_text_till_tal"
-      | "number.samsung_galaxy_tab_a_timer_for_skarmslackare"
-      | "number.samsung_galaxy_tab_a_skarmslackarens_ljusstyrka"
-      | "number.samsung_galaxy_tab_a_timer_for_avstangning_av_skarm"
-      | "number.samsung_galaxy_tab_a_skarmens_ljusstyrka"
-      | "sensor.samsung_galaxy_tab_a_batteri"
-      | "sensor.samsung_galaxy_tab_a_aktuell_sida"
-      | "sensor.samsung_galaxy_tab_a_skarmorientering"
-      | "sensor.samsung_galaxy_tab_a_app_for_forgrund"
-      | "sensor.samsung_galaxy_tab_a_ledigt_utrymme_for_intern_lagring"
-      | "sensor.samsung_galaxy_tab_a_totalt_utrymme_for_intern_lagring"
-      | "sensor.samsung_galaxy_tab_a_ledigt_minne"
-      | "sensor.samsung_galaxy_tab_a_totalt_minne"
-      | "switch.samsung_galaxy_tab_a_skarmslackare"
-      | "switch.samsung_galaxy_tab_a_underhallslage"
-      | "switch.samsung_galaxy_tab_a_kiosk_las"
-      | "switch.samsung_galaxy_tab_a_rorelsedetektering"
-      | "switch.samsung_galaxy_tab_a_skarm"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_id"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_path"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_visibility"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_useragent"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_user"
-      | "binary_sensor.browser_mod_77be7c4a_3772bf82_browser_fullykiosk"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_width"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_height"
-      | "binary_sensor.browser_mod_77be7c4a_3772bf82_browser_dark_mode"
-      | "binary_sensor.browser_mod_77be7c4a_3772bf82"
-      | "light.browser_mod_77be7c4a_3772bf82_screen"
-      | "media_player.browser_mod_77be7c4a_3772bf82"
-      | "sensor.browser_mod_77be7c4a_3772bf82_panel"
-      | "sensor.browser_mod_77be7c4a_3772bf82_browser_battery"
-      | "binary_sensor.browser_mod_77be7c4a_3772bf82_browser_charging"
-      | "input_select.jerry_ringer_mode"
-      | "input_select.alice_ringer_mode"
-      | "person.oliver"
-      | "sensor.jerrys_mobil_last_update_trigger";
+      | 'update.home_assistant_supervisor_update'
+      | 'update.home_assistant_core_update'
+      | 'update.studio_code_server_uppdatering'
+      | 'update.samba_share_uppdatering'
+      | 'update.advanced_ssh_web_terminal_uppdatering'
+      | 'update.whisper_uppdatering'
+      | 'update.piper_uppdatering'
+      | 'update.openwakeword_uppdatering'
+      | 'update.duck_dns_uppdatering'
+      | 'update.home_assistant_mcp_server_dev_uppdatering'
+      | 'update.home_assistant_operating_system_update'
+      | 'conversation.home_assistant'
+      | 'event.backup_automatic_backup'
+      | 'sensor.backup_backup_manager_state'
+      | 'sensor.backup_next_scheduled_automatic_backup'
+      | 'sensor.backup_last_successful_automatic_backup'
+      | 'sensor.backup_last_attempted_automatic_backup'
+      | 'zone.skolan'
+      | 'zone.home'
+      | 'person.jerry'
+      | 'person.tablet'
+      | 'person.alice'
+      | 'person.linnea'
+      | 'sun.sun'
+      | 'sensor.sun_next_dawn'
+      | 'sensor.sun_next_dusk'
+      | 'sensor.sun_next_midnight'
+      | 'sensor.sun_next_noon'
+      | 'sensor.sun_next_rising'
+      | 'sensor.sun_next_setting'
+      | 'todo.inkopslista'
+      | 'binary_sensor.jerrys_mobil_power_save'
+      | 'device_tracker.oneplus_12r'
+      | 'sensor.jerrys_mobil_detected_activity'
+      | 'sensor.jerrys_mobil_ringer_mode'
+      | 'sensor.jerrys_mobil_battery_level'
+      | 'sensor.jerrys_mobil_battery_state'
+      | 'sensor.jerrys_mobil_geocoded_location'
+      | 'sensor.jerrys_mobil_wi_fi_connection'
+      | 'device_tracker.sm_t550'
+      | 'sensor.sm_t550_battery_level'
+      | 'sensor.sm_t550_battery_state'
+      | 'sensor.sm_t550_charger_type'
+      | 'binary_sensor.alices_mobil_is_charging'
+      | 'binary_sensor.alices_mobil_interactive'
+      | 'binary_sensor.alices_mobil_power_save'
+      | 'device_tracker.alices_mobil'
+      | 'sensor.alices_mobil_detected_activity'
+      | 'sensor.alices_mobil_ringer_mode'
+      | 'sensor.alices_mobil_audio_mode'
+      | 'sensor.alices_mobil_battery_level'
+      | 'sensor.alices_mobil_battery_state'
+      | 'sensor.alices_mobil_charger_type'
+      | 'sensor.alices_mobil_battery_health'
+      | 'sensor.alices_mobil_battery_temperature'
+      | 'sensor.alices_mobil_battery_power'
+      | 'sensor.alices_mobil_remaining_charge_time'
+      | 'sensor.alices_mobil_geocoded_location'
+      | 'sensor.alices_mobil_wi_fi_connection'
+      | 'sensor.alices_mobil_network_type'
+      | 'sensor.alices_mobil_steps_sensor'
+      | 'binary_sensor.vog_l29_power_save'
+      | 'device_tracker.vog_l29'
+      | 'sensor.vog_l29_detected_activity'
+      | 'sensor.vog_l29_audio_mode'
+      | 'sensor.vog_l29_battery_level'
+      | 'sensor.vog_l29_battery_state'
+      | 'sensor.vog_l29_geocoded_location'
+      | 'sensor.vog_l29_wi_fi_connection'
+      | 'tts.google_translate_en_com'
+      | 'media_player.kokets_hogtalare'
+      | 'ai_task.openai_ai_task'
+      | 'conversation.openai_conversation'
+      | 'wake_word.openwakeword'
+      | 'tts.piper'
+      | 'stt.faster_whisper'
+      | 'weather.forecast_hem'
+      | 'update.layout_card_update'
+      | 'update.hacs_update'
+      | 'update.tapo_cameras_control_update'
+      | 'update.meteogram_card_update'
+      | 'update.card_mod_update'
+      | 'update.browser_mod_update'
+      | 'update.button_card_update'
+      | 'update.calendar_card_pro_update'
+      | 'update.plejd_update'
+      | 'binary_sensor.rt_ac2900_5888_asus_router_wan_status'
+      | 'sensor.rt_ac2900_5888_asus_router_extern_ip'
+      | 'sensor.rt_ac2900_5888_asus_router_nedladdningshastighet'
+      | 'sensor.rt_ac2900_5888_asus_router_uppladdningshastighet'
+      | 'todo.dev'
+      | 'media_player.alice_s_hogtalare'
+      | 'calendar.jerry_olsson_kalender_canvas'
+      | 'calendar.kraver_uppgradering'
+      | 'calendar.ojebyn_weather'
+      | 'calendar.helgdagar_i_sverige'
+      | 'calendar.family'
+      | 'calendar.myold'
+      | 'calendar.alice'
+      | 'calendar.linnea'
+      | 'calendar.oliver'
+      | 'calendar.ohlson_mailen_gmail_com'
+      | 'calendar.fodelsedagar'
+      | 'calendar.https_home_tempusinfo_se_tempushome_icalservlet_id_aa535f12ca104f209bfa7ae5b2577f65_s_19'
+      | 'calendar.fodelsedagar_2'
+      | 'light.spottar_matsalen'
+      | 'switch.may_be_gateway'
+      | 'binary_sensor.is_gateway'
+      | 'binary_sensor.is_connectable'
+      | 'sensor.last_seen'
+      | 'sensor.rssi'
+      | 'light.spottar_vardagsrum'
+      | 'switch.may_be_gateway_2'
+      | 'binary_sensor.is_gateway_2'
+      | 'binary_sensor.is_connectable_2'
+      | 'sensor.last_seen_2'
+      | 'sensor.rssi_2'
+      | 'light.spottar_bibliotek'
+      | 'switch.may_be_gateway_3'
+      | 'binary_sensor.is_gateway_3'
+      | 'binary_sensor.is_connectable_3'
+      | 'sensor.last_seen_3'
+      | 'sensor.rssi_3'
+      | 'light.soffbord'
+      | 'switch.may_be_gateway_4'
+      | 'binary_sensor.is_gateway_4'
+      | 'binary_sensor.is_connectable_4'
+      | 'sensor.last_seen_4'
+      | 'sensor.rssi_4'
+      | 'light.barbord'
+      | 'switch.may_be_gateway_5'
+      | 'binary_sensor.is_gateway_5'
+      | 'binary_sensor.is_connectable_5'
+      | 'sensor.last_seen_5'
+      | 'sensor.rssi_5'
+      | 'light.bibliotek_taklampa'
+      | 'switch.may_be_gateway_6'
+      | 'binary_sensor.is_gateway_6'
+      | 'binary_sensor.is_connectable_6'
+      | 'sensor.last_seen_6'
+      | 'sensor.rssi_6'
+      | 'light.kokslampa'
+      | 'switch.may_be_gateway_7'
+      | 'binary_sensor.is_gateway_7'
+      | 'binary_sensor.is_connectable_7'
+      | 'sensor.last_seen_7'
+      | 'sensor.rssi_7'
+      | 'event.spottar_matsalen_1_pressed'
+      | 'event.spottar_matsalen_2_pressed'
+      | 'event.spottar_matsalen_3_pressed'
+      | 'event.spottar_vardagsrum_1_pressed'
+      | 'event.spottar_vardagsrum_2_pressed'
+      | 'event.spottar_vardagsrum_3_pressed'
+      | 'event.spottar_bibliotek_1_pressed'
+      | 'event.spottar_bibliotek_2_pressed'
+      | 'event.spottar_bibliotek_3_pressed'
+      | 'event.barbord_1_pressed'
+      | 'event.barbord_2_pressed'
+      | 'event.barbord_3_pressed'
+      | 'event.soffbord_1_pressed'
+      | 'event.soffbord_2_pressed'
+      | 'event.soffbord_3_pressed'
+      | 'event.kokslampa_1_pressed'
+      | 'event.kokslampa_2_pressed'
+      | 'event.kokslampa_3_pressed'
+      | 'event.bibliotek_taklampa_1_pressed'
+      | 'event.bibliotek_taklampa_2_pressed'
+      | 'event.bibliotek_taklampa_3_pressed'
+      | 'scene.allt_av'
+      | 'event.allt_av_activated'
+      | 'event.god_morgon_vardag_activated'
+      | 'scene.kvallsmys'
+      | 'event.kvallsmys_activated'
+      | 'scene.allt_pa'
+      | 'event.allt_pa_activated'
+      | 'scene.morgon'
+      | 'event.morgon_activated'
+      | 'event.sangdax_activated'
+      | 'scene.dag'
+      | 'event.dag_activated'
+      | 'media_player.google_tv'
+      | 'camera.utomhus_hd_stream'
+      | 'camera.utomhus_sd_stream'
+      | 'button.utomhus_reboot'
+      | 'button.utomhus_format_sd_card'
+      | 'button.utomhus_manual_alarm_start'
+      | 'button.utomhus_manual_alarm_stop'
+      | 'button.utomhus_sync_time'
+      | 'button.utomhus_calibrate'
+      | 'button.utomhus_move_up'
+      | 'button.utomhus_move_down'
+      | 'button.utomhus_move_right'
+      | 'button.utomhus_move_left'
+      | 'number.utomhus_movement_angle'
+      | 'number.utomhus_motion_detection_digital_sensitivity'
+      | 'number.utomhus_microphone_volume'
+      | 'number.utomhus_speaker_volume'
+      | 'number.utomhus_siren_volume'
+      | 'number.utomhus_siren_duration'
+      | 'number.utomhus_spotlight_intensity'
+      | 'select.utomhus_timezone'
+      | 'select.utomhus_night_vision_switching'
+      | 'select.utomhus_night_vision'
+      | 'select.utomhus_light_frequency'
+      | 'select.utomhus_automatic_alarm'
+      | 'select.utomhus_siren_type'
+      | 'select.utomhus_motion_detection'
+      | 'select.utomhus_person_detection'
+      | 'select.utomhus_vehicle_detection'
+      | 'select.utomhus_pet_detection'
+      | 'select.utomhus_tamper_detection'
+      | 'select.utomhus_move_to_preset'
+      | 'select.utomhus_patrol_mode'
+      | 'select.utomhus_spotlight_on_off_for'
+      | 'siren.utomhus_siren'
+      | 'update.utomhus_update'
+      | 'binary_sensor.utomhus_noise'
+      | 'sensor.utomhus_network_ssid'
+      | 'sensor.utomhus_link_type'
+      | 'sensor.utomhus_rssi'
+      | 'sensor.utomhus_recordings_synchronization'
+      | 'switch.utomhus_privacy'
+      | 'switch.utomhus_trigger_alarm_on_people_detection'
+      | 'switch.utomhus_trigger_alarm_on_motion_detection'
+      | 'switch.utomhus_trigger_alarm_on_tamper_detection'
+      | 'switch.utomhus_trigger_alarm_on_linecrossing_detection'
+      | 'switch.utomhus_trigger_alarm_on_vehicle_detection'
+      | 'switch.utomhus_trigger_alarm_on_pet_detection'
+      | 'switch.utomhus_media_sync'
+      | 'switch.utomhus_lens_distortion_correction'
+      | 'switch.utomhus_indicator_led'
+      | 'switch.utomhus_record_audio'
+      | 'switch.utomhus_diagnose_mode'
+      | 'switch.utomhus_smart_track_people'
+      | 'switch.utomhus_smart_track_pet'
+      | 'switch.utomhus_smart_track_vehicle'
+      | 'switch.utomhus_smart_track_baby'
+      | 'switch.utomhus_privacy_zones'
+      | 'switch.utomhus_flip'
+      | 'switch.utomhus_auto_track'
+      | 'switch.utomhus_notifications'
+      | 'switch.utomhus_rich_notifications'
+      | 'switch.utomhus_automatically_upgrade_firmware'
+      | 'switch.utomhus_record_to_sd_card'
+      | 'switch.utomhus_microphone_mute'
+      | 'switch.utomhus_microphone_noise_cancellation'
+      | 'light.utomhus_floodlight_timed'
+      | 'binary_sensor.utomhus_person_detection'
+      | 'binary_sensor.utomhus_pet_detection'
+      | 'binary_sensor.utomhus_person_detection_2'
+      | 'binary_sensor.utomhus_pet_detection_2'
+      | 'binary_sensor.samsung_galaxy_tab_a_kiosklage'
+      | 'binary_sensor.samsung_galaxy_tab_a_inkopplad'
+      | 'binary_sensor.samsung_galaxy_tab_a_enhetsadministrator'
+      | 'button.samsung_galaxy_tab_a_starta_om_webblasaren'
+      | 'button.samsung_galaxy_tab_a_starta_om_enheten'
+      | 'button.samsung_galaxy_tab_a_ta_fram_i_forgrunden'
+      | 'button.samsung_galaxy_tab_a_skicka_till_bakgrunden'
+      | 'button.samsung_galaxy_tab_a_las_in_start_url'
+      | 'button.samsung_galaxy_tab_a_rensa_webblasarens_cache'
+      | 'camera.samsung_galaxy_tab_a'
+      | 'image.samsung_galaxy_tab_a_skarmdump'
+      | 'media_player.samsung_galaxy_tab_a'
+      | 'notify.samsung_galaxy_tab_a_overlagrad_avisering'
+      | 'notify.samsung_galaxy_tab_a_text_till_tal'
+      | 'number.samsung_galaxy_tab_a_timer_for_skarmslackare'
+      | 'number.samsung_galaxy_tab_a_skarmslackarens_ljusstyrka'
+      | 'number.samsung_galaxy_tab_a_timer_for_avstangning_av_skarm'
+      | 'number.samsung_galaxy_tab_a_skarmens_ljusstyrka'
+      | 'sensor.samsung_galaxy_tab_a_batteri'
+      | 'sensor.samsung_galaxy_tab_a_aktuell_sida'
+      | 'sensor.samsung_galaxy_tab_a_skarmorientering'
+      | 'sensor.samsung_galaxy_tab_a_app_for_forgrund'
+      | 'sensor.samsung_galaxy_tab_a_ledigt_utrymme_for_intern_lagring'
+      | 'sensor.samsung_galaxy_tab_a_totalt_utrymme_for_intern_lagring'
+      | 'sensor.samsung_galaxy_tab_a_ledigt_minne'
+      | 'sensor.samsung_galaxy_tab_a_totalt_minne'
+      | 'switch.samsung_galaxy_tab_a_skarmslackare'
+      | 'switch.samsung_galaxy_tab_a_underhallslage'
+      | 'switch.samsung_galaxy_tab_a_kiosk_las'
+      | 'switch.samsung_galaxy_tab_a_rorelsedetektering'
+      | 'switch.samsung_galaxy_tab_a_skarm'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_id'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_path'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_visibility'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_useragent'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_user'
+      | 'binary_sensor.browser_mod_77be7c4a_3772bf82_browser_fullykiosk'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_width'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_height'
+      | 'binary_sensor.browser_mod_77be7c4a_3772bf82_browser_dark_mode'
+      | 'binary_sensor.browser_mod_77be7c4a_3772bf82'
+      | 'light.browser_mod_77be7c4a_3772bf82_screen'
+      | 'media_player.browser_mod_77be7c4a_3772bf82'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_panel'
+      | 'sensor.browser_mod_77be7c4a_3772bf82_browser_battery'
+      | 'binary_sensor.browser_mod_77be7c4a_3772bf82_browser_charging'
+      | 'input_select.jerry_ringer_mode'
+      | 'input_select.alice_ringer_mode'
+      | 'person.oliver'
+      | 'sensor.jerrys_mobil_last_update_trigger';
   }
 }

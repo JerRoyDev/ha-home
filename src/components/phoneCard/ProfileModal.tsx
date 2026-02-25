@@ -2,10 +2,10 @@ import React from 'react';
 import { Home, MapPin, Wifi, Clock, BatteryCharging, Leaf, Smartphone } from 'lucide-react';
 import PhoneFrame from './PhoneFrame';
 import PhoneStatusBar from './PhoneStatusBar';
-import type { ProfileData } from './ProfileCard';
+import type { HassProfileData } from '@/hooks/useHassPersonProfile';
 
 interface ProfileModalProps {
-  data: ProfileData;
+  data: HassProfileData;
   open: boolean;
   onClose: () => void;
 }
@@ -45,7 +45,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ data, open, onClose }) => {
             <div className='flex flex-col items-center gap-3 pt-2 pb-4'>
               <div className='relative'>
                 <div className='w-24 h-24 rounded-full overflow-hidden border-3 border-phone-highlight/40 shadow-xl'>
-                  <img src={data.avatarUrl} alt={data.person} className='w-full h-full object-cover' />
+                  <img src={data.personAvatar} alt={data.person} className='w-full h-full object-cover' />
                 </div>
                 <div
                   className={`absolute -bottom-1 -right-1 w-7 h-7 rounded-full border-2 border-phone-screen flex items-center justify-center ${data.isHome ? 'bg-success' : 'bg-muted'}`}

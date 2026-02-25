@@ -11,17 +11,17 @@ export function isEntityUnavailable(entity: { state?: string } | undefined | nul
 }
 
 // Overload for string state
-export function getEntityStateSafe(entity: { state?: string } | undefined | null): { value?: string, unavailable: boolean };
+export function getEntityStateSafe(entity: { state?: string } | undefined | null): { value?: string; unavailable: boolean };
 // Generic overload
-export function getEntityStateSafe<T>(entity: { state?: T } | undefined | null): { value?: T, unavailable: boolean };
+export function getEntityStateSafe<T>(entity: { state?: T } | undefined | null): { value?: T; unavailable: boolean };
 
 /**
  * Returnerar { value, unavailable } för en entity
  * value = entity.state om tillgänglig, annars undefined
  */
-export function getEntityStateSafe<T=string>(entity: { state?: T } | undefined | null): { value?: T, unavailable: boolean } {
+export function getEntityStateSafe<T = string>(entity: { state?: T } | undefined | null): { value?: T; unavailable: boolean } {
   let unavailable: boolean;
-  if (typeof (entity?.state) === 'string' || entity == null) {
+  if (typeof entity?.state === 'string' || entity == null) {
     unavailable = isEntityUnavailable(entity as { state?: string } | undefined | null);
   } else {
     unavailable = entity == null;
