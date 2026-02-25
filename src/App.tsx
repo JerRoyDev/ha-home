@@ -1,3 +1,4 @@
+// App.tsx - Applikationens rotkomponent
 import { ThemeProvider } from '@/components/theme-provider';
 import { HassProvider } from './context/HassProvider';
 import { HashRouter, Route, Routes } from 'react-router-dom';

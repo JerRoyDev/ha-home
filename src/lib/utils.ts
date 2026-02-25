@@ -1,3 +1,4 @@
+// utils.ts - Diverse hjälpfunktioner
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 

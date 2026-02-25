@@ -1,3 +1,4 @@
+// Dashboard2.tsx - Alternativ dashboardvy
 import { Column } from '@hakit/components';
 
 function Dashboard2() {

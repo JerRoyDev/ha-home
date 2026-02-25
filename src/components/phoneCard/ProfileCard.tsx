@@ -1,3 +1,4 @@
+// ProfileCard.tsx - Visar kompakt profilkort för person
 import React, { useState } from 'react';
 import { Home, MapPin } from 'lucide-react';
 import PhoneFrame from './PhoneFrame';
@@ -15,6 +16,7 @@ interface ProfileCardProps {
 const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile, debug }) => {
   // Hämta data från Home Assistant via customhook
   const data = useHassPersonProfile(person, mobile, debug);
+
 
   // Bestäm vilken bild som ska visas: prop > entityPicture > default
   const defaultAvatar = 'public/images/avatar-default.svg';

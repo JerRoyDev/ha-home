@@ -1,3 +1,4 @@
+// CalendarTest.tsx - Testkomponent för kalender
 import { useHassCalendar } from '../../hooks/useHassCalendar';
 
 export const CalendarTest = () => {

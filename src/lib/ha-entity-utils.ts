@@ -1,3 +1,4 @@
+// ha-entity-utils.ts - Verktyg för Home Assistant entity-hantering
 // Home Assistant entity helpers
 
 /**

@@ -1,3 +1,6 @@
+// useHassPersonProfile.ts - Custom hook för att hämta person- och mobilrelaterad data från Home Assistant
+
+
 import { useMemo } from 'react';
 import { useHass } from '../context/HassProvider';
 import { getEntityStateSafe } from '../lib/ha-entity-utils';
@@ -57,6 +60,7 @@ export function useHassPersonProfile(person: string, mobile: string, debug?: boo
     return result;
   }, [person, mobile, entities]);
 
+
   // Mobilrelaterade sensorer för unavailable-koll
   const mobileUnavailable = ['battery', 'batteryState', 'powerSave', 'ringMode'].every(k => entityStates[k]?.unavailable);
   const personUnavailable = entityStates['person']?.unavailable;
@@ -75,6 +79,7 @@ export function useHassPersonProfile(person: string, mobile: string, debug?: boo
   const ringRaw = typeof entityStates['ringMode'].value === 'string' ? entityStates['ringMode'].value.toLowerCase() : '';
   if (ringRaw === 'silent') ringMode = 'silent';
   else if (ringRaw === 'vibrate') ringMode = 'vibrate';
+
   // Hämta person-entiteten
   const personEntity = entities[`person.${person.toLowerCase()}`];
   // Hämta baseUrl från miljövariabel

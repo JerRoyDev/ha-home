@@ -1,3 +1,4 @@
+// PhoneStatusBar.tsx - Visar statusfält för mobilprofil
 import React from 'react';
 import { BatteryCharging, BatteryFull, BatteryMedium, BatteryLow, Volume2, VolumeX, Vibrate, Leaf } from 'lucide-react';
 

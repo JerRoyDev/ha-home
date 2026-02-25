@@ -1,3 +1,4 @@
+// ProfileModal.tsx - Modal med detaljerad profilinfo
 import React from 'react';
 import { Home, MapPin, Wifi, Clock, BatteryCharging, Leaf, Smartphone } from 'lucide-react';
 import PhoneFrame from './PhoneFrame';

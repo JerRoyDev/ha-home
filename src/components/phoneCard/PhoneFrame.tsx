@@ -1,3 +1,4 @@
+// PhoneFrame.tsx - Wrapper för mobilskärmsutseende
 import React from 'react';
 
 interface PhoneFrameProps {

@@ -1,3 +1,4 @@
+// HassProvider.tsx - Context provider för Home Assistant-data
 import { createContext, useContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import { createConnection, createLongLivedTokenAuth, subscribeEntities, Connection } from 'home-assistant-js-websocket';

@@ -1,3 +1,4 @@
+// useHassCalendar.ts - Custom hook för Home Assistant-kalenderdata
 import { useEffect, useState } from 'react';
 import { useHass } from '../context/HassProvider';
 

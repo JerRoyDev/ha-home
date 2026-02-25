@@ -1,3 +1,4 @@
+// theme-provider.tsx - Hanterar tema och dark mode
 import { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'dark' | 'light' | 'system';

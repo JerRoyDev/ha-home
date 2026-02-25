@@ -1,3 +1,4 @@
+// card.tsx - UI-komponent för kort
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
