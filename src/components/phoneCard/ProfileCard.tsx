@@ -1,61 +1,27 @@
 import React, { useState } from 'react';
-// @ts-ignore
-import { useEntity } from '@hakit/core';
 import { Home, MapPin } from 'lucide-react';
-
 import PhoneFrame from './PhoneFrame';
-
 import ProfileModal from './ProfileModal';
 import PhoneStatusBar from './PhoneStatusBar';
+import { useHassPersonProfile } from '../../hooks/useHassPersonProfile';
 
-export interface ProfileData {
-  person: string;
-  avatarUrl: string;
-  isHome: boolean;
-  batteryLevel: number;
-  isCharging: boolean;
-  isPowerSave: boolean;
-  ringMode: 'normal' | 'silent' | 'vibrate';
-  location?: string;
-  wifiNetwork?: string;
-  lastSeen?: string;
-}
 
 interface ProfileCardProps {
   person: string;
-  avatarUrl: string;
+  avatarUrl?: string; // valfri
   mobile: string;
 }
 
+
 const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile }) => {
-  // Hämta data från Home Assistant
-  const battery = useEntity(`sensor.${mobile}_battery_level`, { returnNullIfNotFound: true });
-  const batteryState = useEntity(`sensor.${mobile}_battery_state`, { returnNullIfNotFound: true });
-  const powerSave = useEntity(`binary_sensor.${mobile}_power_save`, { returnNullIfNotFound: true });
-  const ringModeEntity = useEntity(`sensor.${mobile}_ringer_mode`, { returnNullIfNotFound: true });
-  const personEntity = useEntity(`person.${person.toLowerCase()}`, { returnNullIfNotFound: true });
+  // Hämta data från Home Assistant via customhook
+  const data = useHassPersonProfile(person, mobile);
 
-  // Bygg ProfileData-objekt
-  const isHome = personEntity?.state?.toLowerCase() === 'home';
-  const isCharging = ['charging', 'plugged_in'].includes(batteryState?.state?.toLowerCase() || '');
-  const isPowerSave = powerSave?.state === 'on';
-  const batteryLevel = Number(battery?.state) || 0;
-  let ringMode: 'normal' | 'silent' | 'vibrate' = 'normal';
-  const ringRaw = ringModeEntity?.state?.toLowerCase();
-  if (ringRaw === 'silent') ringMode = 'silent';
-  else if (ringRaw === 'vibrate') ringMode = 'vibrate';
+  // Bestäm vilken bild som ska visas: prop > entityPicture > default
+  const defaultAvatar = 'public/images/avatar-default.svg';
+  const picture = avatarUrl || data.personEntityPicture || defaultAvatar;
 
-  const data: ProfileData = {
-    person,
-    avatarUrl,
-    isHome,
-    batteryLevel,
-    isCharging,
-    isPowerSave,
-    ringMode,
-  };
-
-  // Modal state (placeholder, kan byggas ut)
+  // Modal state
   const [open, setOpen] = useState(false);
 
   return (
@@ -73,7 +39,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile }) 
           {/* Avatar */}
           <div className='relative'>
             <div className='w-20 h-20 rounded-full overflow-hidden border-2 border-phone-highlight/30 shadow-lg'>
-              <img src={data.avatarUrl} alt={data.person} className='w-full h-full object-cover' />
+              <img src={picture} alt={data.person} className='w-full h-full object-cover' />
             </div>
             {/* Status dot */}
             <div
