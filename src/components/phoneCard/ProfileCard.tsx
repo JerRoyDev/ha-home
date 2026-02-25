@@ -9,11 +9,12 @@ interface ProfileCardProps {
   person: string;
   avatarUrl?: string; // ex:  avatarUrl={`${baseUrl}images/jerry-avatar.jpg`}
   mobile: string;
+  debug?: boolean;
 }
 
-const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile }) => {
+const ProfileCard: React.FC<ProfileCardProps> = ({ person, avatarUrl, mobile, debug }) => {
   // Hämta data från Home Assistant via customhook
-  const data = useHassPersonProfile(person, mobile);
+  const data = useHassPersonProfile(person, mobile, debug);
 
   // Bestäm vilken bild som ska visas: prop > entityPicture > default
   const defaultAvatar = 'public/images/avatar-default.svg';

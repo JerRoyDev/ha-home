@@ -24,9 +24,11 @@ export interface HassProfileData {
  * Custom hook för att hämta profilinfo för en person och mobil från Home Assistant
  * @param person namn på person (t.ex. 'Jerry')
  * @param mobile namn på mobil entity (t.ex. 'jerrys_mobil')
+ * @param debug om true, logga HassProfileData till konsolen
  * @returns HassProfileData
  */
-export function useHassPersonProfile(person: string, mobile: string): HassProfileData {
+import { useEffect } from 'react';
+export function useHassPersonProfile(person: string, mobile: string, debug?: boolean): HassProfileData {
   const { entities } = useHass();
 
   // Definiera entity keys och deras entityId-strängar
@@ -86,7 +88,7 @@ export function useHassPersonProfile(person: string, mobile: string): HassProfil
     }
   }
 
-  return {
+  const profileData: HassProfileData = {
     person,
     personAvatar: entityPicture,
     isHome,
@@ -102,4 +104,13 @@ export function useHassPersonProfile(person: string, mobile: string): HassProfil
     personUnavailable,
     mobileUnavailable,
   };
+
+  useEffect(() => {
+    if (debug) {
+      // eslint-disable-next-line no-console
+      console.log(`[Profile Debug] ${person} (${mobile}):`, profileData);
+    }
+  }, [debug, person, mobile, JSON.stringify(profileData)]);
+
+  return profileData;
 }
