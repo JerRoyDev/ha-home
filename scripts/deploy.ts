@@ -19,7 +19,6 @@ const FOLDER_NAME = process.env.VITE_FOLDER_NAME;
 const LOCAL_DIRECTORY = './dist';
 const REMOTE_PATH = `/www/${FOLDER_NAME}`;
 
-
 async function ensureRemoteDir(client: ScpClient, target: string) {
   const segments = target.split('/').filter(Boolean);
   let current = '';
@@ -107,7 +106,7 @@ async function deploy() {
       if (!rootExists) continue;
 
       console.info(chalk.gray(`Rensar gammal deployment i ${remoteBase}...`));
-      await client.rmdir(remoteBase).catch(() => { }); // Ignorerar fel om mappen inte finns
+      await client.rmdir(remoteBase).catch(() => {}); // Ignorerar fel om mappen inte finns
 
       await ensureRemoteDir(client, remoteBase);
 
@@ -128,7 +127,6 @@ async function deploy() {
 
     client.close();
     if (!success) throw new Error('Kunde inte hitta en giltig sökväg på servern.');
-
   } catch (e: any) {
     console.error(chalk.red(`\n❌ Deployment misslyckades: ${e.message}`));
     process.exit(1);
