@@ -2,9 +2,10 @@
 import { useMemo } from 'react';
 import { useHass } from '../context/HassProvider';
 import type { HassEntity } from 'home-assistant-js-websocket';
+import type { EntityName } from '../types/ha-entities';
 
 export interface HassProfileData {
-  person: string;
+  person: string; //ex "Jerry"
   raw: {
     person?: HassEntity;
     battery?: HassEntity;
@@ -24,7 +25,7 @@ export interface HassProfileData {
   unavailable: boolean;
 }
 
-export function useHassPersonProfile(person: string, mobile: string): HassProfileData {
+export function useHassPersonProfile(person: string, mobile?: string): HassProfileData {
   const { entities } = useHass();
 
   // 1. Hämta konfiguration för URL:er
@@ -34,13 +35,13 @@ export function useHassPersonProfile(person: string, mobile: string): HassProfil
 
   const raw = useMemo(
     () => ({
-      person: entities[`person.${person.toLowerCase()}`],
-      battery: entities[`sensor.${mobile}_battery_level`],
-      batteryState: entities[`sensor.${mobile}_battery_state`],
-      location: entities[`sensor.${mobile}_geocoded_location`],
-      powerSave: entities[`binary_sensor.${mobile}_power_save`],
-      ringMode: entities[`sensor.${mobile}_ringer_mode`],
-      lastSeen: entities[`sensor.${mobile}_last_seen`],
+      person: entities[`person.${person.toLowerCase()}` as EntityName],
+      battery: mobile ? entities[`sensor.${mobile}_battery_level` as EntityName] : undefined,
+      batteryState: mobile ? entities[`sensor.${mobile}_battery_state` as EntityName] : undefined,
+      location: mobile ? entities[`sensor.${mobile}_geocoded_location` as EntityName] : undefined,
+      powerSave: mobile ? entities[`binary_sensor.${mobile}_power_save` as EntityName] : undefined,
+      ringMode: mobile ? entities[`sensor.${mobile}_ringer_mode` as EntityName] : undefined,
+      lastSeen: mobile ? entities[`sensor.${mobile}_last_seen` as EntityName] : undefined,
     }),
     [entities, person, mobile]
   );

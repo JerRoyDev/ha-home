@@ -8,7 +8,7 @@ import FamilyPanel from './FamilyPanel';
 function App() {
   return (
     <>
-      <HassProvider url={import.meta.env.VITE_HA_URL} token={import.meta.env.VITE_HA_TOKEN}>
+      <HassProvider url={import.meta.env.VITE_HA_URL}>
         <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
           <HashRouter>
             <Routes>

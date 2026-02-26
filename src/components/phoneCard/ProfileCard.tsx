@@ -7,8 +7,8 @@ import PhoneStatusBar from './PhoneStatusBar';
 import { useHassPersonProfile } from '../../hooks/useHassPersonProfile';
 
 interface ProfileCardProps {
-  person: string;
-  mobile: string;
+  person: string; //ex "Jerry"
+  mobile?: string; //ex "jerrys_mobil"
   debug?: boolean;
 }
 

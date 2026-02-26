@@ -5,7 +5,7 @@ interface CustomEnv {
   VITE_SSH_USERNAME: string;
   VITE_SSH_PASSWORD: string;
   VITE_SSH_HOSTNAME: string;
-  VITE_HA_TOKEN: string;
+  HA_SYNC_TOKEN: string;
   [key: string]: unknown;
 }
 

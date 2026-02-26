@@ -11,7 +11,7 @@ function FamilyPanel() {
         <ProfileCard person='Jerry' mobile='jerrys_mobil' />
         <ProfileCard person='Alice' mobile='alices_mobil' />
         <ProfileCard person='Linnea' mobile='vog_l29' />
-        <ProfileCard person='Oliver' mobile='' />
+        <ProfileCard person='Oliver' />
       </div>
       {/* Huvudpanel (tom, redo för fler komponenter) */}
       <div className=''>
