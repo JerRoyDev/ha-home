@@ -10,7 +10,6 @@ import { access, constants, readdir } from 'fs/promises';
 dotenv.config();
 
 const HA_URL = process.env.VITE_HA_URL;
-const HA_TOKEN = process.env.VITE_HA_TOKEN;
 const USERNAME = process.env.VITE_SSH_USERNAME;
 const PASSWORD = process.env.VITE_SSH_PASSWORD;
 const HOST_OR_IP_ADDRESS = process.env.VITE_SSH_HOSTNAME;

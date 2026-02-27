@@ -13,7 +13,7 @@ export interface HassProfileData {
     location?: HassEntity;
     powerSave?: HassEntity;
     ringMode?: HassEntity;
-    lastSeen?: HassEntity;
+    lastUpdateTrigger?: HassEntity;
   };
   isHome: boolean;
   batteryLevel: number;
@@ -41,7 +41,7 @@ export function useHassPersonProfile(person: string, mobile?: string): HassProfi
       location: mobile ? entities[`sensor.${mobile}_geocoded_location` as EntityName] : undefined,
       powerSave: mobile ? entities[`binary_sensor.${mobile}_power_save` as EntityName] : undefined,
       ringMode: mobile ? entities[`sensor.${mobile}_ringer_mode` as EntityName] : undefined,
-      lastSeen: mobile ? entities[`sensor.${mobile}_last_seen` as EntityName] : undefined,
+      lastUpdateTrigger: mobile ? entities[`sensor.${mobile}_last_update_trigger` as EntityName] : undefined,
     }),
     [entities, person, mobile]
   );

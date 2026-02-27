@@ -7,9 +7,8 @@
 // Col 11–12: Mediaspelare (alla rader, tre staplade)
 
 // import ProfileCard from './components/phoneCard/ProfileCard';
-import {ProfileCard} from './components/profile/ProfileCard';
+import { ProfileCard } from './components/profile/ProfileCard';
 import { CameraPreview } from './components/camera/CameraPreview';
-// import { CameraPreview } from './componenphoneCard/ProfileCardew';
 import { MediaPlayer } from './components/media/MediaPlayer';
 import { WeatherCard } from './components/weather/WeatherCard';
 import { LightingControl } from './components/lighting/LightingControl';
@@ -20,14 +19,10 @@ function FamilyPanel() {
     <div className='h-screen w-screen overflow-hidden p-3 grid grid-cols-12 grid-rows-6 gap-3 bg-background'>
       {/* nr1. Profilkort — kol 1–2, rad 1–6 */}
       <div className='col-span-2 row-span-6 flex flex-col gap-3 items-center'>
-        {/* <ProfileCard person='Jerry' mobile='jerrys_mobil' />
+        <ProfileCard person='Jerry' mobile='jerrys_mobil' debug />
         <ProfileCard person='Alice' mobile='alices_mobil' />
         <ProfileCard person='Linnea' mobile='vog_l29' />
-        <ProfileCard person='Oliver' /> */}
-        <ProfileCard />
-        <ProfileCard />
-        <ProfileCard />
-        <ProfileCard />
+        <ProfileCard person='Oliver' />
       </div>
 
       {/* nr2. Kalender — kol 3–6, rad 1–3 */}
