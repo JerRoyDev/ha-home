@@ -13,11 +13,11 @@ dotenv.config();
 dotenv.config({ path: resolve(process.cwd(), '.env.local') });
 dotenv.config({ path: resolve(process.cwd(), '.env.development') });
 
-const url = process.env.VITE_HA_URL!;
-const token = process.env.HA_SYNC_TOKEN!;
+const url = process.env.VITE_HASS_URL!;
+const token = process.env.VITE_HASS_TOKEN!;
 
-console.log('Använder URL:', process.env.VITE_HA_URL);
-console.log('Token startar med:', process.env.HA_SYNC_TOKEN?.substring(0, 10) + '...');
+console.log('Använder URL:', process.env.VITE_HASS_URL);
+console.log('Token startar med:', process.env.VITE_HASS_TOKEN?.substring(0, 10) + '...');
 
 async function sync() {
   try {

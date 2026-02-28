@@ -1,10 +1,6 @@
 // FamilyPanel.tsx - Huvudlayout för väggmonterad surfplatta (1024×768 liggande)
 //
 // Rutnät: 12 kolumner × 6 rader
-// Col 1–2:  Profilkort (alla rader)
-// Col 3–4:  Kalender   (alla rader)
-// Col 5–10: Kamera     (rad 1–3) → Väder (5–7) + Belysning (8–10) (rad 4–6)
-// Col 11–12: Mediaspelare (alla rader, tre staplade)
 
 // import ProfileCard from './components/phoneCard/ProfileCard';
 import { ProfileCard } from './components/profile/ProfileCard';
@@ -13,16 +9,17 @@ import { MediaPlayer } from './components/media/MediaPlayer';
 import { WeatherCard } from './components/weather/WeatherCard';
 import { LightingControl } from './components/lighting/LightingControl';
 import { Calendar } from './components/calendar/Calendar';
+import { PEOPLE } from './config/people';
 
 function FamilyPanel() {
   return (
     <div className='h-screen w-screen overflow-hidden p-3 grid grid-cols-12 grid-rows-6 gap-3 bg-background'>
       {/* nr1. Profilkort — kol 1–2, rad 1–6 */}
       <div className='col-span-2 row-span-6 flex flex-col gap-3 items-center'>
-        <ProfileCard person='Jerry' mobile='jerrys_mobil' debug />
-        <ProfileCard person='Alice' mobile='alices_mobil' />
-        <ProfileCard person='Linnea' mobile='vog_l29' />
-        <ProfileCard person='Oliver' />
+        <ProfileCard config={PEOPLE.jerry} />
+        <ProfileCard config={PEOPLE.alice} />
+        <ProfileCard config={PEOPLE.linnea} />
+        <ProfileCard config={PEOPLE.oliver} />
       </div>
 
       {/* nr2. Kalender — kol 3–6, rad 1–3 */}

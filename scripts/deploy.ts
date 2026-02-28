@@ -9,7 +9,7 @@ import { access, constants, readdir } from 'fs/promises';
 
 dotenv.config();
 
-const HA_URL = process.env.VITE_HA_URL;
+const HA_URL = process.env.VITE_HASS_URL;
 const USERNAME = process.env.VITE_SSH_USERNAME;
 const PASSWORD = process.env.VITE_SSH_PASSWORD;
 const HOST_OR_IP_ADDRESS = process.env.VITE_SSH_HOSTNAME;
@@ -68,7 +68,7 @@ async function deploy() {
   try {
     // Validering av miljövariabler
     const missing = [];
-    if (!HA_URL) missing.push('VITE_HA_URL');
+    if (!HA_URL) missing.push('VITE_HASS_URL');
     if (!FOLDER_NAME) missing.push('VITE_FOLDER_NAME');
     if (!USERNAME) missing.push('VITE_SSH_USERNAME');
     if (!PASSWORD) missing.push('VITE_SSH_PASSWORD');

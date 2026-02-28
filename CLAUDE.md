@@ -24,11 +24,11 @@ A `.env` file is required at the root. `VITE_FOLDER_NAME` is also required at bu
 | Variable | Purpose |
 |---|---|
 | `VITE_FOLDER_NAME` | Subfolder name under `/www/` on HA (sets Vite `base`) |
-| `VITE_HA_URL` | URL to HA instance (e.g. `https://...`) |
+| `VITE_HASS_URL` | URL to HA instance (e.g. `https://...`) |
 | `VITE_SSH_USERNAME` | SSH user for deploy script |
 | `VITE_SSH_PASSWORD` | SSH password for deploy script |
 | `VITE_SSH_HOSTNAME` | IP/hostname for deploy script |
-| `HA_SYNC_TOKEN` | Long-lived HA token used only by `npm run sync` (not `VITE_` prefixed so it stays server-side) |
+| `VITE_HASS_TOKEN` | Long-lived HA token used only by `npm run sync` (not `VITE_` prefixed so it stays server-side) |
 
 ## Architecture
 
