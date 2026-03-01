@@ -24,7 +24,7 @@ function FamilyPanel() {
 
       {/* nr2. Kalender — kol 3–6, rad 1–3 */}
       <div className='col-span-4 row-span-3 col-start-3 overflow-y-auto rounded-xl'>
-        <Calendar />
+        <Calendar calendarIds={['calendar.family', 'calendar.alice']} />
       </div>
 
       {/* nr3.  Kamera — kol 7–10, rad 1–3 */}
