@@ -1,18 +1,27 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useEntitiesByDomain, useHass } from "@/hass";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEntitiesByDomain, useHass } from '@/hass';
 import type {
   CalendarPrefs,
   CalendarStore,
   ResolvedCalendar,
   UseCalendarStoreReturn,
-} from "../types/calendar.types";
+} from '../types/calendar.types';
 
-const HA_STORE_KEY = "ha-home/calendar-prefs";
+const HA_STORE_KEY = 'ha-home/calendar-prefs';
 
 const AUTO_COLORS = [
-  "#60a5fa", "#34d399", "#f472b6", "#a78bfa", "#fb923c",
-  "#38bdf8", "#4ade80", "#e879f9", "#facc15", "#06b6d4",
-  "#f87171", "#84cc16",
+  '#60a5fa',
+  '#34d399',
+  '#f472b6',
+  '#a78bfa',
+  '#fb923c',
+  '#38bdf8',
+  '#4ade80',
+  '#e879f9',
+  '#facc15',
+  '#06b6d4',
+  '#f87171',
+  '#84cc16',
 ];
 
 function hashString(str: string): number {
@@ -27,7 +36,7 @@ function autoColor(entityId: string): string {
 
 export function useCalendarStore(): UseCalendarStoreReturn {
   const { sendMessage } = useHass();
-  const calendarEntities = useEntitiesByDomain("calendar");
+  const calendarEntities = useEntitiesByDomain('calendar');
 
   const [store, setStore] = useState<CalendarStore>({ prefs: {} });
   const [isLoading, setIsLoading] = useState(true);
@@ -35,19 +44,27 @@ export function useCalendarStore(): UseCalendarStoreReturn {
   useEffect(() => {
     let cancelled = false;
     sendMessage<{ value: CalendarStore | null }>({
-      type: "frontend/get_user_data",
+      type: 'frontend/get_user_data',
       key: HA_STORE_KEY,
     })
-      .then((res) => { if (!cancelled) setStore(res.value ?? { prefs: {} }); })
-      .catch(() => { /* no saved data yet */ })
-      .finally(() => { if (!cancelled) setIsLoading(false); });
-    return () => { cancelled = true; };
+      .then(res => {
+        if (!cancelled) setStore(res.value ?? { prefs: {} });
+      })
+      .catch(() => {
+        /* no saved data yet */
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [sendMessage]);
 
   const persist = useCallback(
     async (updated: CalendarStore) => {
       setStore(updated);
-      await sendMessage({ type: "frontend/set_user_data", key: HA_STORE_KEY, value: updated });
+      await sendMessage({ type: 'frontend/set_user_data', key: HA_STORE_KEY, value: updated });
     },
     [sendMessage]
   );
@@ -73,11 +90,11 @@ export function useCalendarStore(): UseCalendarStoreReturn {
 
   const allCalendars: ResolvedCalendar[] = useMemo(
     () =>
-      calendarEntities.map((entity) => {
+      calendarEntities.map(entity => {
         const prefs = store.prefs[entity.entity_id] ?? {};
         return {
           entityId: entity.entity_id,
-          name: entity.attributes.friendly_name ?? entity.entity_id.replace("calendar.", ""),
+          name: entity.attributes.friendly_name ?? entity.entity_id.replace('calendar.', ''),
           color: prefs.color ?? autoColor(entity.entity_id),
           hidden: prefs.hidden ?? false,
         };
@@ -85,7 +102,7 @@ export function useCalendarStore(): UseCalendarStoreReturn {
     [calendarEntities, store]
   );
 
-  const calendars = useMemo(() => allCalendars.filter((c) => !c.hidden), [allCalendars]);
+  const calendars = useMemo(() => allCalendars.filter(c => !c.hidden), [allCalendars]);
 
   return { calendars, allCalendars, isLoading, setColor, setHidden };
 }

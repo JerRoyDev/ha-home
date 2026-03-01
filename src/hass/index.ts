@@ -10,7 +10,19 @@ export { useHassEvent } from './hooks/useHassEvent';
 export { useHassCollection } from './hooks/useHassCollection';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-export type { HassContextValue, HassProviderProps, HassAuthConfig, ConnectionStatus } from './types/hass.types';
+export type {
+  HassContextValue,
+  HassProviderProps,
+  HassAuthConfig,
+  ConnectionStatus,
+} from './types/hass.types';
 
 // ─── Re-export useful types from the library ──────────────────────────────────
-export type { HassEntity, HassEntities, HassConfig, HassServices, HassUser, Connection } from 'home-assistant-js-websocket';
+export type {
+  HassEntity,
+  HassEntities,
+  HassConfig,
+  HassServices,
+  HassUser,
+  Connection,
+} from 'home-assistant-js-websocket';

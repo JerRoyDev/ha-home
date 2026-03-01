@@ -38,7 +38,13 @@ function mapErrorCode(code: unknown): string {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export function HassProvider({ children, auth: authConfig, setupRetry = 3, onStatusChange, onEntitiesChange }: HassProviderProps) {
+export function HassProvider({
+  children,
+  auth: authConfig,
+  setupRetry = 3,
+  onStatusChange,
+  onEntitiesChange,
+}: HassProviderProps) {
   const [connection, setConnection] = useState<Connection | null>(null);
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>('idle');
   const [entities, setEntities] = useState<HassEntities>({});
@@ -223,24 +229,30 @@ export function HassProvider({ children, auth: authConfig, setupRetry = 3, onSta
     []
   );
 
-  const sendMessage = useCallback(async <T = unknown,>(message: Record<string, unknown>): Promise<T> => {
-    if (!connectionRef.current) {
-      throw new Error('Not connected to Home Assistant.');
-    }
-    // Ensure message has a 'type' property
-    if (!('type' in message) || typeof message.type !== 'string') {
-      throw new Error("Message must have a 'type' property of type string.");
-    }
-    return connectionRef.current.sendMessagePromise(message as any) as Promise<T>;
-  }, []);
+  const sendMessage = useCallback(
+    async <T = unknown,>(message: Record<string, unknown>): Promise<T> => {
+      if (!connectionRef.current) {
+        throw new Error('Not connected to Home Assistant.');
+      }
+      // Ensure message has a 'type' property
+      if (!('type' in message) || typeof message.type !== 'string') {
+        throw new Error("Message must have a 'type' property of type string.");
+      }
+      return connectionRef.current.sendMessagePromise(message as any) as Promise<T>;
+    },
+    []
+  );
 
-  const subscribeToEvent = useCallback(async (eventType: string, callback: (event: unknown) => void): Promise<() => void> => {
-    if (!connectionRef.current) {
-      throw new Error('Not connected to Home Assistant.');
-    }
-    const unsub = await connectionRef.current.subscribeEvents(callback, eventType);
-    return unsub;
-  }, []);
+  const subscribeToEvent = useCallback(
+    async (eventType: string, callback: (event: unknown) => void): Promise<() => void> => {
+      if (!connectionRef.current) {
+        throw new Error('Not connected to Home Assistant.');
+      }
+      const unsub = await connectionRef.current.subscribeEvents(callback, eventType);
+      return unsub;
+    },
+    []
+  );
 
   const reconnect = useCallback(() => {
     connect();

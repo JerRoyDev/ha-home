@@ -1,4 +1,11 @@
-import type { Connection, HassConfig, HassEntities, HassServices, HassUser, AuthData } from 'home-assistant-js-websocket';
+import type {
+  Connection,
+  HassConfig,
+  HassEntities,
+  HassServices,
+  HassUser,
+  AuthData,
+} from 'home-assistant-js-websocket';
 
 // ─── Connection State ────────────────────────────────────────────────────────
 
@@ -45,7 +52,11 @@ export interface HassContextValue {
     domain: string,
     service: string,
     serviceData?: Record<string, unknown>,
-    target?: { entity_id?: string | string[]; area_id?: string | string[]; device_id?: string | string[] }
+    target?: {
+      entity_id?: string | string[];
+      area_id?: string | string[];
+      device_id?: string | string[];
+    }
   ) => Promise<void>;
 
   /**

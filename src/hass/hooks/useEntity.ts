@@ -46,5 +46,8 @@ export function useEntities(entityIds: string[]): Array<HassEntity | undefined> 
  */
 export function useEntitiesByDomain(domain: string): HassEntity[] {
   const { entities } = useHass();
-  return useMemo(() => Object.values(entities).filter(e => e.entity_id.startsWith(`${domain}.`)), [entities, domain]);
+  return useMemo(
+    () => Object.values(entities).filter(e => e.entity_id.startsWith(`${domain}.`)),
+    [entities, domain]
+  );
 }

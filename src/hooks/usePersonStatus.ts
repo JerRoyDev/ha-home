@@ -93,13 +93,15 @@ export function usePersonStatus({
   const isPowerSave = powerSaveEntity?.state === 'on';
 
   // Charging status: batteryStateEntity?.state === 'charging' or 'full'
-  const isCharging = batteryStateEntity?.state === 'charging' || batteryStateEntity?.state === 'full';
+  const isCharging =
+    batteryStateEntity?.state === 'charging' || batteryStateEntity?.state === 'full';
 
   const lastChangedRaw = presenceEntity?.last_changed;
   const lastChanged = lastChangedRaw ? new Date(lastChangedRaw) : null;
 
   // Hämta entity_picture från personEntity eller trackerEntity
-  const entityPicture = personEntity?.attributes?.entity_picture || trackerEntity?.attributes?.entity_picture || null;
+  const entityPicture =
+    personEntity?.attributes?.entity_picture || trackerEntity?.attributes?.entity_picture || null;
 
   return {
     isHome,

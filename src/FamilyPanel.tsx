@@ -52,7 +52,9 @@ function FamilyPanel() {
       {/* nr7. diverse — kol 11–12, rad 1–2 */}
       <div className='col-span-2 row-span-2 col-start-11 row-start-1 flex flex-col gap-3'>
         <div className='h-full w-full rounded-xl bg-green-950 border border-slate-700/30 p-3 flex flex-col gap-2'>
-          <span className='text-xs font-semibold text-slate-500 uppercase tracking-wider'>Diverse</span>
+          <span className='text-xs font-semibold text-slate-500 uppercase tracking-wider'>
+            Diverse
+          </span>
         </div>
       </div>
     </div>

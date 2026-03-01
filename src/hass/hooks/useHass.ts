@@ -15,7 +15,10 @@ import type { HassContextValue } from '../types/hass.types';
 export function useHass(): HassContextValue {
   const ctx = useContext(HassContext);
   if (!ctx) {
-    throw new Error('`useHass` must be used inside a `<HassProvider>`. ' + 'Wrap your component tree with `<HassProvider auth={...}>`.');
+    throw new Error(
+      '`useHass` must be used inside a `<HassProvider>`. ' +
+        'Wrap your component tree with `<HassProvider auth={...}>`.'
+    );
   }
   return ctx;
 }

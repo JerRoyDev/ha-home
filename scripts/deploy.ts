@@ -110,7 +110,11 @@ async function deploy() {
       await ensureRemoteDir(client, remoteBase);
 
       console.info(chalk.cyan(`Laddar upp filer till ${remoteBase}...`));
-      const { uploaded, failed } = await uploadDirectoryRecursively(client, LOCAL_DIRECTORY, remoteBase);
+      const { uploaded, failed } = await uploadDirectoryRecursively(
+        client,
+        LOCAL_DIRECTORY,
+        remoteBase
+      );
 
       if (failed === 0 && uploaded > 0) {
         success = true;
@@ -119,7 +123,9 @@ async function deploy() {
         const finalUrl = `${HA_URL}/local/${FOLDER_NAME}/index.html`;
         console.info(chalk.blue('\nDin dashboard finns nu här:'));
         console.info(chalk.bgBlue.white.bold(` ${finalUrl} `));
-        console.info(chalk.gray('\nGlöm inte att lägga till den som en "Webpage Card" eller i sidomenyn!\n'));
+        console.info(
+          chalk.gray('\nGlöm inte att lägga till den som en "Webpage Card" eller i sidomenyn!\n')
+        );
       }
       break;
     }

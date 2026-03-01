@@ -43,7 +43,13 @@ function ColorPicker({ color, onChange }: { color: string; onChange: (c: string)
         title='Annan färg'
       >
         +
-        <input ref={inputRef} type='color' value={color} onChange={e => onChange(e.target.value)} className='sr-only' />
+        <input
+          ref={inputRef}
+          type='color'
+          value={color}
+          onChange={e => onChange(e.target.value)}
+          className='sr-only'
+        />
       </button>
     </div>
   );
@@ -65,7 +71,9 @@ function CalendarRow({
   return (
     <div
       className={`rounded-lg border transition-colors ${
-        calendar.hidden ? 'border-slate-800/60 bg-slate-900/20' : 'border-slate-700/40 bg-slate-800/30'
+        calendar.hidden
+          ? 'border-slate-800/60 bg-slate-900/20'
+          : 'border-slate-700/40 bg-slate-800/30'
       }`}
     >
       <div className='flex items-center gap-3 px-3 py-2.5'>
@@ -78,7 +86,11 @@ function CalendarRow({
           title='Ändra färg'
         />
 
-        <span className={`flex-1 text-sm truncate ${calendar.hidden ? 'text-slate-600' : 'text-slate-200'}`}>{calendar.name}</span>
+        <span
+          className={`flex-1 text-sm truncate ${calendar.hidden ? 'text-slate-600' : 'text-slate-200'}`}
+        >
+          {calendar.name}
+        </span>
 
         <button
           onClick={() => {
@@ -97,7 +109,10 @@ function CalendarRow({
 
       {colorOpen && !calendar.hidden && (
         <div className='px-3 pb-3 border-t border-slate-700/40'>
-          <ColorPicker color={calendar.color} onChange={color => onColorChange(calendar.entityId, color)} />
+          <ColorPicker
+            color={calendar.color}
+            onChange={color => onColorChange(calendar.entityId, color)}
+          />
         </div>
       )}
     </div>
@@ -137,14 +152,26 @@ export function CalendarSettings({ activeCalendars, onClose }: CalendarSettingsP
 
       <div className='flex-1 overflow-y-auto p-3 space-y-1.5' style={{ scrollbarWidth: 'none' }}>
         {visible.map(cal => (
-          <CalendarRow key={cal.entityId} calendar={cal} onColorChange={setColor} onHiddenChange={setHidden} />
+          <CalendarRow
+            key={cal.entityId}
+            calendar={cal}
+            onColorChange={setColor}
+            onHiddenChange={setHidden}
+          />
         ))}
 
         {hidden.length > 0 && (
           <>
-            <p className='text-[10px] uppercase tracking-widest text-slate-600 px-1 pt-3 pb-1'>Dolda</p>
+            <p className='text-[10px] uppercase tracking-widest text-slate-600 px-1 pt-3 pb-1'>
+              Dolda
+            </p>
             {hidden.map(cal => (
-              <CalendarRow key={cal.entityId} calendar={cal} onColorChange={setColor} onHiddenChange={setHidden} />
+              <CalendarRow
+                key={cal.entityId}
+                calendar={cal}
+                onColorChange={setColor}
+                onHiddenChange={setHidden}
+              />
             ))}
           </>
         )}

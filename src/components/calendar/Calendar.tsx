@@ -33,7 +33,10 @@ function getWeekNumber(date: Date): number {
   d.setHours(0, 0, 0, 0);
   d.setDate(d.getDate() + 3 - ((d.getDay() + 6) % 7));
   const week1 = new Date(d.getFullYear(), 0, 4);
-  return 1 + Math.round(((d.getTime() - week1.getTime()) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7);
+  return (
+    1 +
+    Math.round(((d.getTime() - week1.getTime()) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7)
+  );
 }
 
 function isMonday(date: Date): boolean {
@@ -69,7 +72,9 @@ function MonthHeader({ date }: { date: Date }) {
 function WeekHeader({ weekNumber }: { weekNumber: number }) {
   return (
     <div className='sticky top-[33px] z-20 flex items-center gap-2 px-2 py-[3px] bg-slate-950/90 backdrop-blur-sm'>
-      <span className='text-[9px] font-bold tracking-widest text-slate-600 uppercase'>v.{weekNumber}</span>
+      <span className='text-[9px] font-bold tracking-widest text-slate-600 uppercase'>
+        v.{weekNumber}
+      </span>
       <div className='flex-1 h-px bg-slate-800/40' />
     </div>
   );
@@ -86,7 +91,10 @@ function EventRow({ event, isPastDay }: { event: CalendarEvent; isPastDay: boole
         ${past ? 'opacity-35' : 'hover:bg-slate-800/40'}`}
     >
       {/* Left color bar */}
-      <div className='absolute left-0 top-[3px] bottom-[3px] w-[2px] rounded-full' style={{ backgroundColor: event.calendarColor }} />
+      <div
+        className='absolute left-0 top-[3px] bottom-[3px] w-[2px] rounded-full'
+        style={{ backgroundColor: event.calendarColor }}
+      />
 
       <div className='flex-1 min-w-0'>
         <span className='block text-[10px] text-slate-500 font-mono leading-none mb-[2px]'>
@@ -94,10 +102,17 @@ function EventRow({ event, isPastDay }: { event: CalendarEvent; isPastDay: boole
             ? event.isMultiDay
               ? `Heldag → ${formatShortDate(event.endDate)}`
               : 'Heldag'
-            : formatTime(event.startDate) + (event.isMultiDay ? ` → ${formatShortDate(event.endDate)}` : '')}
+            : formatTime(event.startDate) +
+              (event.isMultiDay ? ` → ${formatShortDate(event.endDate)}` : '')}
         </span>
-        <p className='text-[11px] font-medium text-slate-200 truncate leading-snug'>{event.title}</p>
-        {event.location && <p className='text-[10px] text-slate-500 truncate leading-none mt-[1px]'>{event.location}</p>}
+        <p className='text-[11px] font-medium text-slate-200 truncate leading-snug'>
+          {event.title}
+        </p>
+        {event.location && (
+          <p className='text-[10px] text-slate-500 truncate leading-none mt-[1px]'>
+            {event.location}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -205,7 +220,14 @@ function DayBlock({ day, bars }: { day: CalendarDay; bars: ActiveBar[] }) {
                   backgroundColor: `${event.calendarColor}60`,
                   borderTop: isStart ? `2px solid ${event.calendarColor}` : undefined,
                   borderBottom: isEnd ? `2px solid ${event.calendarColor}` : undefined,
-                  borderRadius: isStart && isEnd ? '2px' : isStart ? '2px 2px 0 0' : isEnd ? '0 0 2px 2px' : undefined,
+                  borderRadius:
+                    isStart && isEnd
+                      ? '2px'
+                      : isStart
+                        ? '2px 2px 0 0'
+                        : isEnd
+                          ? '0 0 2px 2px'
+                          : undefined,
                 }}
               />
             );
@@ -218,8 +240,22 @@ function DayBlock({ day, bars }: { day: CalendarDay; bars: ActiveBar[] }) {
 
 // ─── Calendar ─────────────────────────────────────────────────────────────────
 
-export function Calendar({ calendarIds, pastDays = 3, futureDays = 14, pageSize = 14 }: CalendarProps) {
-  const { days, isLoading, error, loadMoreFuture, isLoadingMore, activeCalendars, allCalendars, refresh } = useCalendarEvents({
+export function Calendar({
+  calendarIds,
+  pastDays = 3,
+  futureDays = 14,
+  pageSize = 14,
+}: CalendarProps) {
+  const {
+    days,
+    isLoading,
+    error,
+    loadMoreFuture,
+    isLoadingMore,
+    activeCalendars,
+    allCalendars,
+    refresh,
+  } = useCalendarEvents({
     calendarIds,
     pastDays,
     futureDays,
@@ -284,8 +320,12 @@ export function Calendar({ calendarIds, pastDays = 3, futureDays = 14, pageSize 
   return (
     <div className='h-full flex flex-col bg-slate-950 rounded-xl overflow-hidden'>
       {/* ── Scrollable list ──────────────────────────────────────────────── */}
-      <div ref={scrollRef} className='flex-1 overflow-y-auto select-none' style={{ scrollbarWidth: 'none' }}>
-        {days.map((day, index) => {
+      <div
+        ref={scrollRef}
+        className='flex-1 overflow-y-auto select-none'
+        style={{ scrollbarWidth: 'none' }}
+      >
+        {days.map((day, _index) => {
           const month = day.date.getMonth();
           const week = getWeekNumber(day.date);
           const showMonth = month !== lastMonth;
@@ -303,7 +343,9 @@ export function Calendar({ calendarIds, pastDays = 3, futureDays = 14, pageSize 
         })}
 
         <div ref={bottomSentinelRef} className='py-2 flex items-center justify-center'>
-          {isLoadingMore && <span className='text-[10px] text-slate-700 animate-pulse'>Laddar…</span>}
+          {isLoadingMore && (
+            <span className='text-[10px] text-slate-700 animate-pulse'>Laddar…</span>
+          )}
         </div>
       </div>
 

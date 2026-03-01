@@ -32,15 +32,14 @@ function App() {
 */
 
 // ─── 3. Reading connection state ──────────────────────────────────────────────
-import { useHass } from "../hooks/useHass";
+import { useHass } from '../hooks/useHass';
 
 export function ConnectionStatus() {
   const { connectionStatus, error, haVersion, user } = useHass();
 
-  if (connectionStatus === "connecting") return <p>Connecting…</p>;
-  if (connectionStatus === "error")
-    return <p style={{ color: "red" }}>Error: {error}</p>;
-  if (connectionStatus === "disconnected") return <p>Disconnected</p>;
+  if (connectionStatus === 'connecting') return <p>Connecting…</p>;
+  if (connectionStatus === 'error') return <p style={{ color: 'red' }}>Error: {error}</p>;
+  if (connectionStatus === 'disconnected') return <p>Disconnected</p>;
 
   return (
     <div>
@@ -51,10 +50,10 @@ export function ConnectionStatus() {
 }
 
 // ─── 4. Single entity ─────────────────────────────────────────────────────────
-import { useEntity } from "../hooks/useEntity";
+import { useEntity } from '../hooks/useEntity';
 
 export function LivingRoomLight() {
-  const light = useEntity("light.living_room");
+  const light = useEntity('light.living_room');
   if (!light) return null;
 
   return (
@@ -67,17 +66,14 @@ export function LivingRoomLight() {
 }
 
 // ─── 5. Calling a service ─────────────────────────────────────────────────────
-import { useCallService } from "../hooks/useCallService";
+import { useCallService } from '../hooks/useCallService';
 
 export function ToggleLightButton() {
-  const { call, loading } = useCallService("light", "toggle");
+  const { call, loading } = useCallService('light', 'toggle');
 
   return (
-    <button
-      disabled={loading}
-      onClick={() => call(undefined, { entity_id: "light.living_room" })}
-    >
-      {loading ? "Toggling…" : "Toggle Light"}
+    <button disabled={loading} onClick={() => call(undefined, { entity_id: 'light.living_room' })}>
+      {loading ? 'Toggling…' : 'Toggle Light'}
     </button>
   );
 }
@@ -87,25 +83,20 @@ export function BrightnessSetter() {
   const { callService } = useHass();
 
   const setBrightness = (value: number) =>
-    callService(
-      "light",
-      "turn_on",
-      { brightness: value },
-      { entity_id: "light.living_room" }
-    );
+    callService('light', 'turn_on', { brightness: value }, { entity_id: 'light.living_room' });
 
-  return <input type="range" onChange={(e) => setBrightness(Number(e.target.value))} />;
+  return <input type='range' onChange={e => setBrightness(Number(e.target.value))} />;
 }
 
 // ─── 7. All lights ────────────────────────────────────────────────────────────
-import { useEntitiesByDomain } from "../hooks/useEntity";
+import { useEntitiesByDomain } from '../hooks/useEntity';
 
 export function AllLights() {
-  const lights = useEntitiesByDomain("light");
+  const lights = useEntitiesByDomain('light');
 
   return (
     <ul>
-      {lights.map((light) => (
+      {lights.map(light => (
         <li key={light.entity_id}>
           {light.attributes.friendly_name}: {light.state}
         </li>
@@ -115,10 +106,10 @@ export function AllLights() {
 }
 
 // ─── 8. Listening to HA events ───────────────────────────────────────────────
-import { useHassEvent } from "../hooks/useHassEvent";
+import { useHassEvent } from '../hooks/useHassEvent';
 
 export function EventLogger() {
-  useHassEvent("state_changed", (event) => {
+  useHassEvent('state_changed', event => {
     const e = event as { data: { entity_id: string; new_state: { state: string } } };
     console.log(`${e.data.entity_id} → ${e.data.new_state?.state}`);
   });
@@ -131,9 +122,9 @@ export function PanelFetcher() {
 
   const fetchPanels = async () => {
     const result = await sendMessage<{ panels: Record<string, unknown> }>({
-      type: "get_panels",
+      type: 'get_panels',
     });
-    console.log("Panels:", result.panels);
+    console.log('Panels:', result.panels);
   };
 
   return <button onClick={fetchPanels}>Fetch Panels</button>;
@@ -145,10 +136,10 @@ export function ConnectionControls() {
 
   return (
     <div>
-      <button onClick={reconnect} disabled={connectionStatus === "connected"}>
+      <button onClick={reconnect} disabled={connectionStatus === 'connected'}>
         Reconnect
       </button>
-      <button onClick={disconnect} disabled={connectionStatus === "disconnected"}>
+      <button onClick={disconnect} disabled={connectionStatus === 'disconnected'}>
         Disconnect
       </button>
     </div>

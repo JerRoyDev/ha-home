@@ -1,13 +1,13 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useHass } from "@/hass";
-import { useCalendarStore } from "./useCalendarStore";
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useHass } from '@/hass';
+import { useCalendarStore } from './useCalendarStore';
 import type {
   CalendarDay,
   CalendarEvent,
   HassCalendarEventRaw,
   ResolvedCalendar,
   UseCalendarEventsReturn,
-} from "../types/calendar.types";
+} from '../types/calendar.types';
 
 // ─── Date helpers (timezone-safe) ────────────────────────────────────────────
 //
@@ -27,7 +27,7 @@ function isDateOnlyString(str: string): boolean {
 
 /** Parse a YYYY-MM-DD string into local midnight (avoids UTC shift) */
 function parseDateOnly(str: string): Date {
-  const [y, m, d] = str.split("-").map(Number);
+  const [y, m, d] = str.split('-').map(Number);
   return new Date(y, m - 1, d, 0, 0, 0, 0);
 }
 
@@ -60,8 +60,8 @@ function normalizeAllDayEnd(end: Date): Date {
 /** Local-time YYYY-MM-DD key */
 function toDateKey(date: Date): string {
   const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
   return `${y}-${m}-${d}`;
 }
 
@@ -111,11 +111,11 @@ async function fetchEventsFromHA(
   const endISO = addDays(to, 1).toISOString();
 
   const res = await sendMessage<ServiceResponse>({
-    type: "call_service",
-    domain: "calendar",
-    service: "get_events",
+    type: 'call_service',
+    domain: 'calendar',
+    service: 'get_events',
     service_data: { start_date_time: startISO, end_date_time: endISO },
-    target: { entity_id: calendars.map((c) => c.entityId) },
+    target: { entity_id: calendars.map(c => c.entityId) },
     return_response: true,
   });
 
@@ -139,7 +139,7 @@ function normalizeEvents(
     console.log(`[Cal] normalizeEvents: ${calendar.entityId} → ${rawEvents.length} raw events`);
 
     for (const raw of rawEvents) {
-      console.log("[Cal] raw event:", raw.summary, "start:", raw.start, "end:", raw.end);
+      console.log('[Cal] raw event:', raw.summary, 'start:', raw.start, 'end:', raw.end);
       const isAllDay = isAllDayEvent(raw);
       const startDate = parseHassDateString(raw.start);
       const endDateRaw = parseHassDateString(raw.end);
@@ -201,18 +201,21 @@ export function useCalendarEvents({
   pageSize = 14,
 }: UseCalendarEventsOptions = {}): UseCalendarEventsReturn {
   const { sendMessage } = useHass();
-  const { calendars: storeCalendars, allCalendars, isLoading: storeLoading } =
-    useCalendarStore();
+  const { calendars: storeCalendars, allCalendars, isLoading: storeLoading } = useCalendarStore();
 
   // ── Active calendars: store non-hidden, optionally filtered by prop ───────
   const activeCalendars = useMemo(() => {
     if (!calendarIds) return storeCalendars;
-    return storeCalendars.filter((c) => calendarIds.includes(c.entityId));
+    return storeCalendars.filter(c => calendarIds.includes(c.entityId));
   }, [storeCalendars, calendarIds]);
 
   // Stable string key so we can detect actual list changes in effects
   const activeIdsKey = useMemo(
-    () => activeCalendars.map((c) => c.entityId).sort().join(","),
+    () =>
+      activeCalendars
+        .map(c => c.entityId)
+        .sort()
+        .join(','),
     [activeCalendars]
   );
 
@@ -234,7 +237,7 @@ export function useCalendarEvents({
   // ── Core fetch ────────────────────────────────────────────────────────────
   const doFetch = useCallback(
     async (from: Date, to: Date, isInitial: boolean) => {
-      console.log("[Cal] doFetch called", {
+      console.log('[Cal] doFetch called', {
         storeLoading,
         activeCalendarsCount: activeCalendars.length,
         activeIds: activeCalendars.map(c => c.entityId),
@@ -243,16 +246,19 @@ export function useCalendarEvents({
         isInitial,
       });
       if (storeLoading || activeCalendars.length === 0) {
-        console.warn("[Cal] doFetch aborted — storeLoading:", storeLoading, "| activeCalendars:", activeCalendars.length);
+        console.warn(
+          '[Cal] doFetch aborted — storeLoading:',
+          storeLoading,
+          '| activeCalendars:',
+          activeCalendars.length
+        );
         return;
       }
 
       const fromKey = toDateKey(from);
       const toKey = toDateKey(to);
 
-      const alreadyFetched = fetchedRanges.current.some(
-        (r) => r.from <= fromKey && r.to >= toKey
-      );
+      const alreadyFetched = fetchedRanges.current.some(r => r.from <= fromKey && r.to >= toKey);
       if (alreadyFetched) return;
 
       isInitial ? setIsLoading(true) : setIsLoadingMore(true);
@@ -260,20 +266,26 @@ export function useCalendarEvents({
 
       try {
         const raw = await fetchEventsFromHA(sendMessage, activeCalendars, from, to);
-        console.log("[Cal] Raw events from HA:", Object.fromEntries(
-          [...raw.entries()].map(([k, v]) => [k, v.length + " events"])
-        ));
+        console.log(
+          '[Cal] Raw events from HA:',
+          Object.fromEntries([...raw.entries()].map(([k, v]) => [k, v.length + ' events']))
+        );
         const newByDate = normalizeEvents(raw, activeCalendars);
-        console.log("[Cal] Normalized events by date:", Object.fromEntries(
-          [...newByDate.entries()].filter(([, v]) => v.length > 0).map(([k, v]) => [k, v.map(e => e.title)])
-        ));
+        console.log(
+          '[Cal] Normalized events by date:',
+          Object.fromEntries(
+            [...newByDate.entries()]
+              .filter(([, v]) => v.length > 0)
+              .map(([k, v]) => [k, v.map(e => e.title)])
+          )
+        );
 
-        setEventsByDate((prev) => {
+        setEventsByDate(prev => {
           const merged = new Map(prev);
           for (const [key, events] of newByDate) {
             const existing = merged.get(key) ?? [];
-            const existingIds = new Set(existing.map((e) => e.id));
-            merged.set(key, [...existing, ...events.filter((e) => !existingIds.has(e.id))]);
+            const existingIds = new Set(existing.map(e => e.id));
+            merged.set(key, [...existing, ...events.filter(e => !existingIds.has(e.id))]);
           }
           return merged;
         });
@@ -283,7 +295,7 @@ export function useCalendarEvents({
         const msg =
           err instanceof Error
             ? err.message
-            : (err as { message?: string })?.message ?? "Kunde inte hämta kalender";
+            : ((err as { message?: string })?.message ?? 'Kunde inte hämta kalender');
         setError(msg);
       } finally {
         setIsLoading(false);
@@ -304,7 +316,11 @@ export function useCalendarEvents({
 
   // ── Initial / re-fetch when calendar list changes ─────────────────────────
   useEffect(() => {
-    console.log("[Cal] Initial fetch effect triggered", { storeLoading, activeIdsKey, activeCount: activeCalendars.length });
+    console.log('[Cal] Initial fetch effect triggered', {
+      storeLoading,
+      activeIdsKey,
+      activeCount: activeCalendars.length,
+    });
     if (!storeLoading && activeCalendars.length > 0) {
       doFetch(windowStart, windowEnd, true);
     }
@@ -315,20 +331,20 @@ export function useCalendarEvents({
   // Use a color map so we can detect actual color changes without
   // triggering on every render.
   const colorMapKey = useMemo(
-    () => activeCalendars.map((c) => `${c.entityId}:${c.color}`).join("|"),
+    () => activeCalendars.map(c => `${c.entityId}:${c.color}`).join('|'),
     [activeCalendars]
   );
 
   useEffect(() => {
-    setEventsByDate((prev) => {
+    setEventsByDate(prev => {
       // Only remap if the map is non-empty
       if (prev.size === 0) return prev;
-      const colorById = new Map(activeCalendars.map((c) => [c.entityId, c]));
+      const colorById = new Map(activeCalendars.map(c => [c.entityId, c]));
       const next = new Map<string, CalendarEvent[]>();
       for (const [key, events] of prev) {
         next.set(
           key,
-          events.map((e) => {
+          events.map(e => {
             const cal = colorById.get(e.calendarEntityId);
             if (!cal) return e;
             if (cal.color === e.calendarColor && cal.name === e.calendarName) return e;
@@ -358,27 +374,25 @@ export function useCalendarEvents({
   const days: CalendarDay[] = useMemo(() => {
     const today = localStartOfDay(new Date());
     const todayKey = toDateKey(today);
-    const visibleIds = new Set(activeCalendars.map((c) => c.entityId));
+    const visibleIds = new Set(activeCalendars.map(c => c.entityId));
 
-    return generateDayRange(windowStart, windowEnd).map((date) => {
+    return generateDayRange(windowStart, windowEnd).map(date => {
       const key = toDateKey(date);
       const dow = date.getDay();
 
       // Filter to only currently-visible calendars
       // (handles calendars hidden after events were cached)
-      const allOnDay = (eventsByDate.get(key) ?? []).filter((e) =>
+      const allOnDay = (eventsByDate.get(key) ?? []).filter(e =>
         visibleIds.has(e.calendarEntityId)
       );
 
-      const multiDayStarts = allOnDay.filter(
-        (e) => e.isMultiDay && toDateKey(e.startDate) === key
-      );
+      const multiDayStarts = allOnDay.filter(e => e.isMultiDay && toDateKey(e.startDate) === key);
       const multiDayActive = allOnDay.filter(
-        (e) => e.isMultiDay && toDateKey(e.startDate) !== key && toDateKey(e.endDate) >= key
+        e => e.isMultiDay && toDateKey(e.startDate) !== key && toDateKey(e.endDate) >= key
       );
 
       const events = allOnDay
-        .filter((e) => !e.isMultiDay || toDateKey(e.startDate) === key)
+        .filter(e => !e.isMultiDay || toDateKey(e.startDate) === key)
         .sort((a, b) => {
           // All-day and multi-day first, then by start time
           const aFirst = a.isAllDay || a.isMultiDay;
