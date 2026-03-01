@@ -13,6 +13,8 @@ createRoot(document.getElementById('root')!).render(
         token: import.meta.env.VITE_HASS_TOKEN,
       }}
       setupRetry={5}
+      onStatusChange={status => console.log('[HA] Status:', status)}
+      // onEntitiesChange={entity => console.log('[HA] Entity changed:', entity)}
     >
       <App />
     </HassProvider>
