@@ -219,6 +219,12 @@ export function useCalendarEvents({
     [activeCalendars]
   );
 
+  // Always-current ref — doFetch reads from this so it never uses stale colors
+  const activeCalendarsRef = useRef<ResolvedCalendar[]>(activeCalendars);
+  useEffect(() => {
+    activeCalendarsRef.current = activeCalendars;
+  }, [activeCalendars]);
+
   const now = useMemo(() => localStartOfDay(new Date()), []);
   const [windowStart, setWindowStart] = useState(() => addDays(now, -pastDays));
   const [windowEnd, setWindowEnd] = useState(() => addDays(now, futureDays));
@@ -237,20 +243,22 @@ export function useCalendarEvents({
   // ── Core fetch ────────────────────────────────────────────────────────────
   const doFetch = useCallback(
     async (from: Date, to: Date, isInitial: boolean) => {
+      // Always read latest calendars from ref — avoids stale closure colors
+      const currentCalendars = activeCalendarsRef.current;
       console.log('[Cal] doFetch called', {
         storeLoading,
-        activeCalendarsCount: activeCalendars.length,
-        activeIds: activeCalendars.map(c => c.entityId),
+        activeCalendarsCount: currentCalendars.length,
+        activeIds: currentCalendars.map(c => c.entityId),
         from: from.toISOString(),
         to: to.toISOString(),
         isInitial,
       });
-      if (storeLoading || activeCalendars.length === 0) {
+      if (storeLoading || currentCalendars.length === 0) {
         console.warn(
           '[Cal] doFetch aborted — storeLoading:',
           storeLoading,
           '| activeCalendars:',
-          activeCalendars.length
+          currentCalendars.length
         );
         return;
       }
@@ -265,12 +273,12 @@ export function useCalendarEvents({
       setError(null);
 
       try {
-        const raw = await fetchEventsFromHA(sendMessage, activeCalendars, from, to);
+        const raw = await fetchEventsFromHA(sendMessage, currentCalendars, from, to);
         console.log(
           '[Cal] Raw events from HA:',
           Object.fromEntries([...raw.entries()].map(([k, v]) => [k, v.length + ' events']))
         );
-        const newByDate = normalizeEvents(raw, activeCalendars);
+        const newByDate = normalizeEvents(raw, currentCalendars);
         console.log(
           '[Cal] Normalized events by date:',
           Object.fromEntries(

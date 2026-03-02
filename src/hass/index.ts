@@ -8,6 +8,8 @@ export { useEntity, useEntities, useEntitiesByDomain } from './hooks/useEntity';
 export { useCallService } from './hooks/useCallService';
 export { useHassEvent } from './hooks/useHassEvent';
 export { useHassCollection } from './hooks/useHassCollection';
+export { useHassStore } from './hooks/useHassStore';
+export type { UseHassStoreReturn } from './hooks/useHassStore';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type {

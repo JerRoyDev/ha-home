@@ -77,7 +77,6 @@ function CalendarRow({
       }`}
     >
       <div className='flex items-center gap-3 px-3 py-2.5'>
-        {/* Color swatch */}
         <button
           onClick={() => !calendar.hidden && setColorOpen(v => !v)}
           disabled={calendar.hidden}
@@ -122,19 +121,20 @@ function CalendarRow({
 // ─── CalendarSettings ─────────────────────────────────────────────────────────
 
 interface CalendarSettingsProps {
-  /**
-   * The calendars actually shown in this Calendar instance.
-   * Passed from Calendar.tsx so settings only affects relevant calendars.
-   */
-  activeCalendars: ResolvedCalendar[];
+  calendarIds?: string[];
   onClose?: () => void;
 }
 
-export function CalendarSettings({ activeCalendars, onClose }: CalendarSettingsProps) {
-  const { setColor, setHidden } = useCalendarStore();
+export function CalendarSettings({ calendarIds, onClose }: CalendarSettingsProps) {
+  // Read LIVE from store — not from a prop snapshot
+  const { allCalendars, setColor, setHidden } = useCalendarStore();
 
-  const visible = activeCalendars.filter(c => !c.hidden);
-  const hidden = activeCalendars.filter(c => c.hidden);
+  const relevant = calendarIds
+    ? allCalendars.filter(c => calendarIds.includes(c.entityId))
+    : allCalendars;
+
+  const visible = relevant.filter(c => !c.hidden);
+  const hidden = relevant.filter(c => c.hidden);
 
   return (
     <div className='flex flex-col h-full bg-slate-950 rounded-xl'>

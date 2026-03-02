@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useEntitiesByDomain, useHass } from '@/hass';
+import { useCallback, useMemo } from 'react';
+import { useEntitiesByDomain, useHassStore } from '@/hass';
 import type {
   CalendarPrefs,
   CalendarStore,
@@ -7,7 +7,10 @@ import type {
   UseCalendarStoreReturn,
 } from '../types/calendar.types';
 
+// ─── Constants ────────────────────────────────────────────────────────────────
+
 const HA_STORE_KEY = 'ha-home/calendar-prefs';
+const DEFAULT_STORE: CalendarStore = { prefs: {} };
 
 const AUTO_COLORS = [
   '#60a5fa',
@@ -34,59 +37,45 @@ function autoColor(entityId: string): string {
   return AUTO_COLORS[hashString(entityId) % AUTO_COLORS.length];
 }
 
+// ─── Hook ─────────────────────────────────────────────────────────────────────
+
 export function useCalendarStore(): UseCalendarStoreReturn {
-  const { sendMessage } = useHass();
   const calendarEntities = useEntitiesByDomain('calendar');
+  const {
+    data: store,
+    isLoading,
+    setData,
+  } = useHassStore<CalendarStore>(HA_STORE_KEY, DEFAULT_STORE);
 
-  const [store, setStore] = useState<CalendarStore>({ prefs: {} });
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    let cancelled = false;
-    sendMessage<{ value: CalendarStore | null }>({
-      type: 'frontend/get_user_data',
-      key: HA_STORE_KEY,
-    })
-      .then(res => {
-        if (!cancelled) setStore(res.value ?? { prefs: {} });
-      })
-      .catch(() => {
-        /* no saved data yet */
-      })
-      .finally(() => {
-        if (!cancelled) setIsLoading(false);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [sendMessage]);
-
-  const persist = useCallback(
-    async (updated: CalendarStore) => {
-      setStore(updated);
-      await sendMessage({ type: 'frontend/set_user_data', key: HA_STORE_KEY, value: updated });
-    },
-    [sendMessage]
-  );
+  // ── Write ─────────────────────────────────────────────────────────────────
 
   const setPref = useCallback(
-    async (entityId: string, patch: Partial<CalendarPrefs>) => {
-      await persist({
-        prefs: { ...store.prefs, [entityId]: { ...store.prefs[entityId], ...patch } },
+    async (entityId: string, patch: Partial<CalendarPrefs>): Promise<void> => {
+      await setData({
+        prefs: {
+          ...store.prefs,
+          [entityId]: { ...store.prefs[entityId], ...patch },
+        },
       });
     },
-    [store, persist]
+    [setData, store.prefs]
   );
 
   const setColor = useCallback(
-    (entityId: string, color: string) => setPref(entityId, { color }),
+    async (entityId: string, color: string): Promise<void> => {
+      await setPref(entityId, { color });
+    },
     [setPref]
   );
 
   const setHidden = useCallback(
-    (entityId: string, hidden: boolean) => setPref(entityId, { hidden }),
+    async (entityId: string, hidden: boolean): Promise<void> => {
+      await setPref(entityId, { hidden });
+    },
     [setPref]
   );
+
+  // ── Resolve entities → ResolvedCalendar ───────────────────────────────────
 
   const allCalendars: ResolvedCalendar[] = useMemo(
     () =>
